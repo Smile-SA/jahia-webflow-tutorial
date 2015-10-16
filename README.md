@@ -14,7 +14,10 @@ II. La structure d'un webflow
 -----------------------------
 Un webflow sous Jahia comporte plusieurs fichiers principaux qu'il est important de connaître.
 Il est important de comprendre le rôle de chacun de ces fichiers:
-
+1. flow.xml : ce fichier xml va contenir le squelette de notre webflow ainsi que la définition des beans java utilisés par celui-ci. C'est le cœur de notre webflow.
+2. *.jsp : ces fichiers vont contenir les vues utilisées par les différentes étapes de notre webflow. Dans ces vues il y aura le code HTML des différents formulaires.
+3. handler.java : cette class Java va contenir le traitement appelé à la fin du webflow. Dans notre exemple c'est cette class qui va créer un compte à partir des informations recueillis depuis le weblflow.
+4. infos.java : cette class Java va contenir un simple objet correspondant aux informations partagées par les différentes étapes du webflow. Dans notre exemple, cet objet va contenir les informations du compte tel que le nom de l'utilisateur, le prénom, l'adresse email, le numéro de téléphone etc...  
 
 
 ```
