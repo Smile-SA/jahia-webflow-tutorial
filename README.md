@@ -55,3 +55,11 @@ L’arborescence devrait donc ressembler à ça "src/main/resources/snt\_updateC
 V. Création du flow.xml
 ------------------------
 Dans le dossier "updateContactInfos.flow", créez un fichier nommé "flow.xml".
+Vous trouverez ci-dessous le code de base du flow:
+```
+<?xml version="1.0" encoding="UTF-8"?>
+<flow xmlns="http://www.springframework.org/schema/webflow" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.springframework.org/schema/webflow http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd">
+
+</flow>
+```
+Les étapes du flow seront incluses entre les balises "<flow></flow>".
