@@ -32,3 +32,11 @@ Copier-collez le code suivant dans votre fichier definition.cnd:
 <snt = 'http://www.smile.fr/jahia/nt/1.0'>
 <smix = 'http://www.smile.fr/jahia/mix/1.0'>
 ```
+Nous allons en suite créer une mixine héritante de la mixine "jmix:droppableContent", cela va nous permettre de gliser déposer notre composant dans une page.
+```
+[smix:smileContent] > jmix:droppableContent mixin
+```
+Finalement, nous allons déclarer notre composant, ce composant va hériter de la mixine "smix:smileContent" pour pouvoir être glisé-déposé ainsi que du node type "jnt:content".
+```
+[snt:createAccount] > jnt:content, smix:smileContent
+```
