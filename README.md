@@ -111,5 +111,6 @@ Voici le code de la balise complète:
 ```
 <var name="contactInfos" class="fr.smile.tutorial.ContactInfos"/>
 ```
+Faites bien attention à bien faire correspondre la valeur de l'attribut "name" avec la valeur de l'attribut "modelAttribute" utilisé dans la vue JSP.
 
 VIII. 
