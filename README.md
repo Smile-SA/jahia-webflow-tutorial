@@ -20,7 +20,7 @@ Il est important de comprendre le rôle de chacun de ces fichiers:
 1. flow.xml : ce fichier xml va contenir le squelette de notre webflow, c'est à dire la liste et l'ordre des étapes du webflow ainsi que la définition des beans java utilisés par celui-ci. C'est le cœur de notre webflow.
 2. *.jsp : ces fichiers vont contenir les vues utilisées par les différentes étapes de notre webflow. Dans ces vues il y aura le code HTML des différents formulaires.
 3. handler.java : cette class Java va contenir le traitement appelé à la fin du webflow. Dans notre exemple c'est cette class qui va créer un compte à partir des informations recueillis depuis le weblflow.
-4. infos.java : cette class Java va contenir un simple objet correspondant aux informations partagées par les différentes étapes du webflow. Dans notre exemple, il y aura informations du compte tel que l'adresse email, le numéro de téléphone mobile et fixe.  
+4. object.java : cette class Java va contenir un objet correspondant aux informations partagées par les différentes étapes du webflow. Dans notre exemple, il y aura informations du compte tel que l'adresse email, le numéro de téléphone mobile et fixe.  
 
 III. Déclaration du composant
 -----------------------------
@@ -74,7 +74,35 @@ VI. Création des vues
 ---------------------
 Nous allons maintenant créer une vue JSP correspondante à l'étape que nous avons créée dans le "flow.xml"
 Créez un fichier dans le même dossier que le "flow.xml" et nommez le de la même manière que l'id de l'étape précédemment créée.
-Cette vue JSP va donc contenir le code HTML du formulaire. Vous pouvez utiliser l'exemple ce code suivant:
+Cette vue JSP va donc contenir le code HTML du formulaire. Vous pouvez vous inspirer de l'exemple ce code suivant:
 ```
-exemple
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+
+<form:form modelAttribute="contactInfos" method="post" >
+    <fieldset>
+        <legend>Mes informations de contact</legend>
+        <div>
+            <label for="email">Couriel : </label>
+            <form:input path="email" />
+        </div>
+        <div>
+            <label for="email">Téléphone mobile : </label>
+            <form:input path="mobilePhone" />
+        </div>
+        <div>
+            <label for="email">Téléphone fixe : </label>
+            <form:input path="homePhone" />
+        </div>
+    </fieldset>
+</form:form>
 ```
+Nous pouvons voir que la balise "form" contient un attribut nommé "modelAttribute". La valeur de cet attribut correspond à l'id du bean spring utilisé pour stocker les informations du webflow.
+Pour l'instant, nous n'avons encore déclaré aucun bean nommé "contactInfos" donc si vous affichez la page, il y aura une erreur.
+
+VII. Création de l'objet Java
+-----------------------------
+Créez une nouvelle class Java dans le dossier "src/main/java" et nommez la "ContactInfos.java" par exemple.
+Créez les variables dont vous aurez besoin, il vous faut une variable pour chaque champs de formulaire présent dans le webflow.
+Génerez les getter et setter correspondant ainsi que la méthode "toString()".
+
+VIII. 
