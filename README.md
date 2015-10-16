@@ -25,9 +25,9 @@ Il est important de comprendre le rôle de chacun de ces fichiers:
 III. Déclaration du composant
 -----------------------------
 Tout d'abord, nous allons commencer par déclarer notre composant ainsi que sont namespace dans le fichier definition.cnd
-Rappel : le fichier defintion.cnd est localisé dans le dossier src/main/resources/META-INF/
+Rappel : le fichier defintions.cnd est localisé dans le dossier src/main/resources/META-INF/
 Nous allons créer deux namespace dans ce fichier, un namespace correspondant aux node types de smile et un namespace correspondant aux mixins de smile.
-Copier-collez le code suivant dans votre fichier definition.cnd:
+Le code suivant déclare les deux namespaces dont nous aurons besoin:
 ```
 <snt = 'http://www.smile.fr/jahia/nt/1.0'>
 <smix = 'http://www.smile.fr/jahia/mix/1.0'>
