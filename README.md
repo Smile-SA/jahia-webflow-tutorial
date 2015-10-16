@@ -113,4 +113,5 @@ Voici le code de la balise complète:
 ```
 Faites bien attention à bien faire correspondre la valeur de l'attribut "name" avec la valeur de l'attribut "modelAttribute" utilisé dans la vue JSP.
 
-VIII. 
+VIII. Ajout des boutons next, previous et cancel
+------------------------------------------------
