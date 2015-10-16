@@ -9,4 +9,5 @@ Ce tutorial nécesite une connaissance des conceptes Jahia basiques tels que la 
 
 ```
 <snt = 'http://www.smile.fr/jahia/nt/1.0'>
-<smix = 'http://www.smile.fr/jahia/mix/1.0'>```
+<smix = 'http://www.smile.fr/jahia/mix/1.0'>
+```
