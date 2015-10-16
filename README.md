@@ -67,3 +67,14 @@ Pour créer une étape, ajoutez donc le balise suivante entre les baslises "\<fl
 ```
 <view-state id="viewName"></view-state>    
 ```
+Pensez bien à modifier la valeur de l'attribut "id" car il va correspondre à notre vue JSP. La première étape de notre
+webflow sera une page récapitulative des informations de contact. Changez donc la valeur de l'id de la view-state en "resumeContactInfos".
+
+VI. Création des vues
+---------------------
+Nous allons maintenant créer une vue JSP correspondante à l'étape que nous avons créée dans le "flow.xml"
+Créez un fichier dans le même dossier que le "flow.xml" et nommez le de la même manière que l'id de l'étape précédemment créée.
+Cette vue JSP va donc contenir le code HTML du formulaire. Vous pouvez utiliser l'exemple ce code suivant:
+```
+exemple
+```
