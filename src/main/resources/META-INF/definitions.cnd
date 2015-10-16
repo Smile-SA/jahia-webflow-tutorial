@@ -1,0 +1,8 @@
+<jmix = 'http://www.jahia.org/jahia/mix/1.0'>
+<jnt = 'http://www.jahia.org/jahia/nt/1.0'>
+<snt = 'http://www.smile.fr/jahia/nt/1.0'>
+<smix = 'http://www.smile.fr/jahia/mix/1.0'>
+
+[smix:smileContent] > jmix:droppableContent mixin
+[snt:updateContactInfos] > jnt:content, smix:smileContent
+[snt:customForm] > jnt:content, smix:smileContent
