@@ -132,4 +132,28 @@ Pour créer un bouton "précédant", c'est exactement la même chose, rajoutez u
 
 IX. Création d'une class de traitement du webflow
 -------------------------------------------------
-
+Une fois les différentes étapes construites, nous allons créer une class de traitement, cette class va récupérer toutes les informations produite par le webflow et va les enregistrer par exemple.
+Dans notre exemple, nous les afficherons simplement dans les logs.
+Créez une class Java et nommez la "ContactInfosHandler" par exemple. Cette class doit implémenter la class "Serializable".
+Dans cette class, créer une méthode nommé "processContactInfos" par exemple. Cette class va traiter les données du webflow contenues dans l'objet que nous avons créer à l'étape VII. Donc le méthode doit prendre en paramêtre cet objet.
+Pour déclarer le logger (l'objet qui permet d'afficher des informations dans les logs depuis une class Java), vous pouvez utiliser la ligne de code suivante:
+```
+Logger LOGGER = LoggerFactory.getLogger(ContactInfosHandler.class);
+```
+Pour logger des information, vous pouvez utiliser la ligne de code suivante:
+```
+LOGGER.info("proccesing contact infos : " + contactInfos.toString());
+```
+Une fois cette class de traitement créée, il faut la déclarer dans le fichier "flow.xml". Cette déclaration ce fait de la même manière que pour l'objet de l'étape VII :
+Créez une balise "\<var />", ajoutez lui un attribut "name" qui sera le nom du bean et ajoutez lui un attribut "class" qui correspond au package de la class de traitement.
+Voici la balis appliqué à notre exemple:
+```
+<var name="handler" class="fr.smile.tutorial.ContactInfosHandler"/>
+```
+Il faut en suite lier cette class à un bouton. 
+Pour ce faire, créez un bouton dans votre vue, déclarer le dans le fichier "flow.xml", ajouter une balise "transition" et à l'intérieur de cette balise transition et à l'intérieur dans cette balise, créer une balise "\<evaluate />".
+Cette balise doit comporter l'attribut "expression", la valeur de cet attribut doit se composer des informations suivante : "nom du bean du handler" + "\." + "nom de la méthode de traitement du webflow avec en paramêtre le nom du bean de l'objet".
+Cette balise evaluate devrait ressembler au code qui suit:
+```
+<evaluate expression="handler.processContactInfos(contactInfos)" />
+```
