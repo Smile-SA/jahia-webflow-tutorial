@@ -13,6 +13,9 @@ Pour réaliser ce tutoriel, je me suis basé sur cet exemple : https://github.co
 Pour illustrer ce tutoriel, nous prendrons comme exemple une démarche de mise à jour d'informations de contact.
 Commencez donc par créer un templateSet sous Jahia.
 
+Note : Attention, tout le code HTML présent dans ce tutoriel est présent à titre d'illustration et ne suit pas forcément les bonnes pratiques du codeage HTML.
+Pour suivre les bonnes pratiques de création de formulaire, veuillez vous référer à ce lien : http://www.w3.org/WAI/tutorials/forms/
+
 II. La structure d'un webflow
 -----------------------------
 Un webflow sous Jahia comporte plusieurs fichiers principaux qu'il est important de connaître.
@@ -104,7 +107,7 @@ VII. Création de l'objet Java
 Créez une nouvelle class Java dans le dossier "src/main/java" et nommez la "ContactInfos.java" par exemple.
 Cette class doit étendre la class Serializable pour pouvoir être stocké.
 Créez les variables dont vous aurez besoin, il vous faut une variable pour chaque champs de formulaire présent dans le webflow.
-Génerez les getter et setter correspondant ainsi que la méthode "toString()".
+Générez les getter et setter correspondant ainsi que la méthode "toString()".
 Maintenant nous allons déclarer cette class dans le "flow.xml". 
 Créez une balise fermente "\<var />" contenant un attribut "name" et un attribut "class". L'attribut "name" va correspondre au nom du bean et l'attribut "class" va correspondre au nom de la class.
 Voici le code de la balise complète:
@@ -113,5 +116,6 @@ Voici le code de la balise complète:
 ```
 Faites bien attention à bien faire correspondre la valeur de l'attribut "name" avec la valeur de l'attribut "modelAttribute" utilisé dans la vue JSP.
 
-VIII. Ajout des boutons next, previous et cancel
-------------------------------------------------
+VIII. Ajout de boutons de navigation
+-------------------------------------
+Pour créer un bouton "finish" par exemple il faut rajouter le code HTML du bouton dans la vue souhaitée pour qu'il apparaisse et il faut définir son action dans le "flow.xml".
