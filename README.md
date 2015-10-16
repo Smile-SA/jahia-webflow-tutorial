@@ -155,5 +155,7 @@ Pour ce faire, créez un bouton dans votre vue, déclarer le dans le fichier "fl
 Cette balise doit comporter l'attribut "expression", la valeur de cet attribut doit se composer des informations suivante : "nom du bean du handler" + "\." + "nom de la méthode de traitement du webflow avec en paramêtre le nom du bean de l'objet".
 Cette balise evaluate devrait ressembler au code qui suit:
 ```
-<evaluate expression="handler.processContactInfos(contactInfos)" />
+<transition on="finish">
+    <evaluate expression="handler.processContactInfos(contactInfos)" />
+</transition>
 ```
