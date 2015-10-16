@@ -43,15 +43,15 @@ Finalement, nous allons déclarer notre composant, ce composant va hériter de l
 Sauvegardez et compilez, et le composant devrais donc apparaître dans la liste des contenues du mode édition.
 ![alt text](img/screen-shot-2.jpg)
 
-IV. Création de l'arboréscence
+IV. Création de l’arborescence
 ------------------------------
 Dans le dossier "src/main/ressources", nous allons créer une arboréscence correspondant à notre composant.
-Tout d'abbord il faut créer un dossier correspondant au nom du composant. Le nom de ce dossier se compose de la manière suivante : "namespace du composant" + "_" + "nom du composant en camelCase"
+Tout d’abord il faut créer un dossier correspondant au nom du composant. Le nom de ce dossier se compose de la manière suivante : "namespace du composant" + "_" + "nom du composant en camelCase"
 Pour notre exemple, nous allons donc nommer ce dossier "snt_updateContactInfos".
 Dans ce dossier nous allons créer un dossier "html", ce dossier contiendra les vues html.
-Finallement, nous allons créer dans ce dossier "html" nommé de la manière suivante : "nom du composant en camelCase" + "." + "flow"
-L'arboréscence devrait donc ressembler à ça "src/main/ressources/snt_updateContactInfos/html/updateContactInfos.flow/".
+Finalement, nous allons créer dans ce dossier, un dernier dossier nommé de la manière suivante : "nom du composant en camelCase" + "." + "flow"
+L’arborescence devrait donc ressembler à ça "src/main/ressources/snt_updateContactInfos/html/updateContactInfos.flow/".
 
 V. Création du flow.xml
 ------------------------
-
+Dans le dossier "updateContactInfos.flow", créez un fichier nommé "flow.xml".
