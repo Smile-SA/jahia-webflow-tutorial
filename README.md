@@ -8,6 +8,8 @@ L'objectif de de tutoriel est de vous apprendre à réaliser des webflows sous J
 Les webflows sont des formulaires complexes qui comportent plusieurs étapes et qui s'étendent donc sur plusieurs pages web. 
 Ils sont très souvent utilisés dans les projets Jahia, il est donc très important de les maîtriser. 
 
+Pour réaliser ce tutoriel, je me suis basé sur cet exemple : https://github.com/shyrkov/jahia-spring-webflow-showcase
+
 Pour illustrer ce tutoriel, nous prendrons comme exemple une création de compte en plusieurs étapes.
 
 II. La structure d'un webflow
