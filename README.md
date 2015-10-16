@@ -102,7 +102,14 @@ Pour l'instant, nous n'avons encore déclaré aucun bean nommé "contactInfos" d
 VII. Création de l'objet Java
 -----------------------------
 Créez une nouvelle class Java dans le dossier "src/main/java" et nommez la "ContactInfos.java" par exemple.
+Cette class doit étendre la class Serializable pour pouvoir être stocké.
 Créez les variables dont vous aurez besoin, il vous faut une variable pour chaque champs de formulaire présent dans le webflow.
 Génerez les getter et setter correspondant ainsi que la méthode "toString()".
+Maintenant nous allons déclarer cette class dans le "flow.xml". 
+Créez une balise fermente "<var />" contenant un attribut "name" et un attribut "class". L'attribut "name" va correspondre au nom du bean et l'attribut "class" va correspondre au nom de la class.
+Voici le code de la balise complète:
+```
+<var name="contactInfos" class="fr.smile.tutorial.ContactInfos"/>
+```
 
 VIII. 
