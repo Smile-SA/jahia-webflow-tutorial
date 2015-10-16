@@ -62,4 +62,4 @@ Vous trouverez ci-dessous le code de base du flow:
 
 </flow>
 ```
-Les étapes du flow seront incluses entre les balises "<flow></flow>".
+Les étapes du flow seront incluses entre les balises "\<flow></flow>".
