@@ -11,6 +11,7 @@ Ils sont très souvent utilisés dans les projets Jahia, il est donc très impor
 Pour réaliser ce tutoriel, je me suis basé sur cet exemple : https://github.com/shyrkov/jahia-spring-webflow-showcase
 
 Pour illustrer ce tutoriel, nous prendrons comme exemple une création de compte en plusieurs étapes.
+Commencez par créer un templateSet sous Jahia.
 
 II. La structure d'un webflow
 -----------------------------
@@ -21,7 +22,12 @@ Il est important de comprendre le rôle de chacun de ces fichiers:
 3. handler.java : cette class Java va contenir le traitement appelé à la fin du webflow. Dans notre exemple c'est cette class qui va créer un compte à partir des informations recueillis depuis le weblflow.
 4. infos.java : cette class Java va contenir un simple objet correspondant aux informations partagées par les différentes étapes du webflow. Dans notre exemple, il y aura informations du compte tel que le nom de l'utilisateur, le prénom, l'adresse email, le numéro de téléphone etc...  
 
-
+III. Déclaration du composant
+-----------------------------
+Tout d'abord, nous allons commencer par déclarer notre composant ainsi que sont namespace dans le fichier definition.cnd
+Rappel : le fichier defintion.cnd est localisé dans le dossier src/main/resources/META-INF/
+Nous allons créer deux namespace dans ce fichier, un namespace correspondant aux node types de smile et un namespace correspondant aux mixins de smile.
+Copier-collez le code suivant dans votre fichier definition.cnd:
 ```
 <snt = 'http://www.smile.fr/jahia/nt/1.0'>
 <smix = 'http://www.smile.fr/jahia/mix/1.0'>
