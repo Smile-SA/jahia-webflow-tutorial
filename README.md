@@ -41,4 +41,4 @@ Finalement, nous allons déclarer notre composant, ce composant va hériter de l
 [snt:updateContactInfos] > jnt:content, smix:smileContent
 ```
 Le composant devrais donc apparaître dans la liste des contenues du mode édition
-![alt text](img/screen-shot-2.jpg)
+![alt text](img/screen-shot-1.jpg)
