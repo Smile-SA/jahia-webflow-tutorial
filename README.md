@@ -40,3 +40,5 @@ Finalement, nous allons déclarer notre composant, ce composant va hériter de l
 ```
 [snt:updateContactInfos] > jnt:content, smix:smileContent
 ```
+Le composant devrais donc apparaître dans la liste des contenues du mode édition
+![alt text](https://git.smile.fr/fegoo/jahia-webflow-tutorial/blob/master/img/screen-shot-2.jpg)
