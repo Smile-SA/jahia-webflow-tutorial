@@ -24,7 +24,7 @@ Il est important de comprendre le rôle de chacun de ces fichiers:
 
 III. Déclaration du composant
 -----------------------------
-Tout d'abord, nous allons commencer par déclarer notre composant ainsi que sont namespace dans le fichier definition.cnd
+Tout d'abord, nous allons commencer par déclarer notre composant ainsi que sont namespace dans le fichier definitions.cnd
 Rappel : le fichier defintions.cnd est localisé dans le dossier src/main/resources/META-INF/
 Nous allons créer deux namespace dans ce fichier, un namespace correspondant aux node types de smile et un namespace correspondant aux mixins de smile.
 Le code suivant déclare les deux namespaces dont nous aurons besoin:
@@ -40,5 +40,18 @@ Finalement, nous allons déclarer notre composant, ce composant va hériter de l
 ```
 [snt:updateContactInfos] > jnt:content, smix:smileContent
 ```
-Le composant devrais donc apparaître dans la liste des contenues du mode édition
-![alt text](img/screen-shot-1.jpg)
+Sauvegardez et compilez, et le composant devrais donc apparaître dans la liste des contenues du mode édition.
+![alt text](img/screen-shot-2.jpg)
+
+IV. Création de l'arboréscence
+------------------------------
+Dans le dossier "src/main/ressources", nous allons créer une arboréscence correspondant à notre composant.
+Tout d'abbord il faut créer un dossier correspondant au nom du composant. Le nom de ce dossier se compose de la manière suivante : "namespace du composant" + "_" + "nom du composant en camelCase"
+Pour notre exemple, nous allons donc nommer ce dossier "snt_updateContactInfos".
+Dans ce dossier nous allons créer un dossier "html", ce dossier contiendra les vues html.
+Finallement, nous allons créer dans ce dossier "html" nommé de la manière suivante : "nom du composant en camelCase" + "." + "flow"
+L'arboréscence devrait donc ressembler à ça "src/main/ressources/snt_updateContactInfos/html/updateContactInfos.flow/".
+
+V. Création du flow.xml
+------------------------
+
