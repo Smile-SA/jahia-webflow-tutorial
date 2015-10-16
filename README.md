@@ -10,8 +10,8 @@ Ils sont très souvent utilisés dans les projets Jahia, il est donc très impor
 
 Pour réaliser ce tutoriel, je me suis basé sur cet exemple : https://github.com/shyrkov/jahia-spring-webflow-showcase
 
-Pour illustrer ce tutoriel, nous prendrons comme exemple une création de compte en plusieurs étapes.
-Commencez par créer un templateSet sous Jahia.
+Pour illustrer ce tutoriel, nous prendrons comme exemple une démarche de mise à jour d'informations de contact.
+Commencez donc par créer un templateSet sous Jahia.
 
 II. La structure d'un webflow
 -----------------------------
@@ -20,7 +20,7 @@ Il est important de comprendre le rôle de chacun de ces fichiers:
 1. flow.xml : ce fichier xml va contenir le squelette de notre webflow, c'est à dire la liste et l'ordre des étapes du webflow ainsi que la définition des beans java utilisés par celui-ci. C'est le cœur de notre webflow.
 2. *.jsp : ces fichiers vont contenir les vues utilisées par les différentes étapes de notre webflow. Dans ces vues il y aura le code HTML des différents formulaires.
 3. handler.java : cette class Java va contenir le traitement appelé à la fin du webflow. Dans notre exemple c'est cette class qui va créer un compte à partir des informations recueillis depuis le weblflow.
-4. infos.java : cette class Java va contenir un simple objet correspondant aux informations partagées par les différentes étapes du webflow. Dans notre exemple, il y aura informations du compte tel que le nom de l'utilisateur, le prénom, l'adresse email, le numéro de téléphone etc...  
+4. infos.java : cette class Java va contenir un simple objet correspondant aux informations partagées par les différentes étapes du webflow. Dans notre exemple, il y aura informations du compte tel que l'adresse email, le numéro de téléphone mobile et fixe.  
 
 III. Déclaration du composant
 -----------------------------
@@ -38,5 +38,5 @@ Nous allons en suite créer une mixine héritante de la mixine "jmix:droppableCo
 ```
 Finalement, nous allons déclarer notre composant, ce composant va hériter de la mixine "smix:smileContent" pour pouvoir être glisé-déposé ainsi que du node type "jnt:content".
 ```
-[snt:createAccount] > jnt:content, smix:smileContent
+[snt:updateContactInfos] > jnt:content, smix:smileContent
 ```
