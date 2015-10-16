@@ -120,6 +120,9 @@ VIII. Ajout de boutons de navigation
 -------------------------------------
 Pour créer un bouton "finish" par exemple il faut rajouter le code HTML du bouton dans la vue souhaitée pour qu'il apparaisse et il faut définir son action dans le "flow.xml".
 Dans votre vue, ajouter un bouton "\<button>\</button>" de type "submit" possédant un id bien définit par exemple "next".
+Il est également important d'ajouter un attribut "name" dont la valeur est composé de la manière suivante : "_eventId_" + "id du button".
+Voici le code HTML de notre bouton :
+```<button id="finish" type="submit" name="_eventId_finish">Finir</button>```
 Dans le fichier "flow.xml", dans la balise "\<view-state>\</view-state>" correspondant à votre vue, ajoutez une balise "\<transition/>".
 Cette balise va lier une action à un bouton correspondant dans une vue JSP. 
 Dans notre exemple, nous voulons changer de page lors du clic sur le bouton "suivant", il faut alors utiliser l'attribut "on" qui correspond à l'id du bouton et l'attribut "to" qui correspond à l'id de la vue appelé.
@@ -127,7 +130,7 @@ Voici à quoi ressemble le code de notre exemple :
 ```
 <transition on="next" to="updateEmail" />
 ```
-Bien sur la vue appelé par cette transition n'existe pas encore, c'est à vous de la créer. :)
+Bien sur la vue appelée par cette transition n'existe pas encore, c'est à vous de la créer. :)
 Pour créer un bouton "précédant", c'est exactement la même chose, rajoutez un bouton dans la vue JSP, et déclarez sa vue cible dans le fichier "flow.xml" grâce à la balise "\<transition />".
 
 IX. Création d'une class de traitement du webflow
