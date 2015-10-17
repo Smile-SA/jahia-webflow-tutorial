@@ -1,21 +1,20 @@
-Tutorial Webflow Jahia
-======================
+Digital Factory et Webflow
+==========================
 
 I. Introduction
 ---------------
-Cette présentation nécessite une connaissance des concepts Jahia basiques tels que la création de vues et de la contribution.
-L'objectif de ce tutoriel est de vous apprendre à réaliser des webflows sous Digital Factory de Jahia. 
 
-Les webflows sont des formulaires complexes qui comportent plusieurs étapes et qui s'affichent sur plusieurs pages. 
+Les webflows sont des formulaires complexes qui se présentent sur plusieurs étapes s'affichant sur plusieurs pages. 
 Webflow n'est pas un nouveau concept mais une solution éprouvée de [Spring](http://projects.spring.io/spring-webflow/).
-
 Sergiy Shyrkov (de Jahia) nous propose une [démo de Webflow](https://github.com/shyrkov/jahia-spring-webflow-showcase) qui fera un très bon complément à cette présentation.
 
-Pour illustrer ce tutoriel, nous prendrons comme exemple une démarche de mise à jour d'informations de contact.
-Commencez donc par créer un templateSet sous Jahia.
+Cette présentation nécessite une connaissance des concepts Jahia basiques tels que la création de vues et de la contribution.
+L'objectif est d'apprendre à réaliser des webflows sous Digital Factory de Jahia. 
 
-Note : Attention, tout le code HTML présent dans ce tutoriel est présent à titre d'illustration et ne suit pas forcément les bonnes pratiques du codeage HTML.
-Pour suivre les bonnes pratiques de création de formulaire, veuillez vous référer à ce lien : http://www.w3.org/WAI/tutorials/forms/
+La grande force de Digital Factory est qu'elle fait partie des CMS où l'on maitrise 100% du code généré,
+Nous en profiterons pour produire des formulaires accessibles pendant cette présentation.
+
+Nous prendrons comme exemple une démarche de mise à jour d'informations de contact en plusieurs étapes.
 
 II. La structure d'un webflow
 -----------------------------
