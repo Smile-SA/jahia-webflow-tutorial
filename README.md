@@ -3,11 +3,13 @@ Tutorial Webflow Jahia
 
 I. Introduction
 ---------------
-Ce tutoriel nécessite une connaissance des concepts Jahia basiques tels que la création de vues ou l'édition de pages.
-L'objectif de de tutoriel est de vous apprendre à réaliser des webflows sous Jahia 7.1. 
-Les webflows sont des formulaires complexes qui comportent plusieurs étapes et qui s'étendent donc sur plusieurs pages web. 
+Cette présentation nécessite une connaissance des concepts Jahia basiques tels que la création de vues et de la contribution.
+L'objectif de ce tutoriel est de vous apprendre à réaliser des webflows sous Digital Factory de Jahia. 
 
-Pour réaliser ce tutoriel, je me suis basé sur cet exemple : https://github.com/shyrkov/jahia-spring-webflow-showcase
+Les webflows sont des formulaires complexes qui comportent plusieurs étapes et qui s'affichent sur plusieurs pages. 
+Webflow n'est pas un nouveau concept mais une solution éprouvée de [Spring](http://projects.spring.io/spring-webflow/).
+
+Sergiy Shyrkov (de Jahia) nous propose une [démo de Webflow](https://github.com/shyrkov/jahia-spring-webflow-showcase) qui fera un très bon complément à cette présentation.
 
 Pour illustrer ce tutoriel, nous prendrons comme exemple une démarche de mise à jour d'informations de contact.
 Commencez donc par créer un templateSet sous Jahia.
