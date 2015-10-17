@@ -6,7 +6,6 @@ I. Introduction
 Ce tutoriel nécessite une connaissance des concepts Jahia basiques tels que la création de vues ou l'édition de pages.
 L'objectif de de tutoriel est de vous apprendre à réaliser des webflows sous Jahia 7.1. 
 Les webflows sont des formulaires complexes qui comportent plusieurs étapes et qui s'étendent donc sur plusieurs pages web. 
-Ils sont très souvent utilisés dans les projets Jahia, il est donc très important de les maîtriser. 
 
 Pour réaliser ce tutoriel, je me suis basé sur cet exemple : https://github.com/shyrkov/jahia-spring-webflow-showcase
 
