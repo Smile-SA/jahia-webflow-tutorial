@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow xmlns="http://www.springframework.org/schema/webflow"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="
+		http://www.springframework.org/schema/webflow
+		http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd
+        ">
+
+    <var name="contactInfo" class="fr.smile.jahia.model.ContactInfo"/>
+ 
+  	<var name="handler" class="fr.smile.jahia.handler.ContactInfoHandler"/>
+ 
+    <view-state id="step1" model="contactInfo">
+        <transition on="next" to="step2"/>
+    </view-state>
+
+    <view-state id="step2" model="contactInfo">
+        <transition on="previous" to="step1"/>
+        <transition on="next" to="step3"/>
+    </view-state>
+
+    <view-state id="step3" model="contactInfo">
+        <transition on="previous" to="step2"/>
+        <transition on="next" to="summary"/>
+    </view-state>
+
+    <view-state id="summary" model="contactInfo">
+        <transition on="previous" to="step3" bind="false"/>
+        <transition on="finish" to="success" bind="false">
+            <evaluate
+                    expression="handler.update(contactInfo, externalContext.nativeRequest.getAttribute('currentResource').node)"/>
+        </transition>
+    </view-state>
+
+    <view-state id="success"/>
+
+    <view-state id="cancel"/>
+
+    <global-transitions>
+        <transition on="cancel" to="cancel" bind="false"/>
+    </global-transitions>
+
+</flow>

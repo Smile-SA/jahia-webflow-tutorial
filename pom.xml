@@ -67,7 +67,7 @@
         contained in a separate written agreement between you and Jahia Solutions Group SA.
 
         If you are unsure which license is appropriate for your use,
-        please contact the sales department at sales@jahia.com.
+        please contact the sales department at sales@fr.smile.jahia.com.
 
 -->
 <project xmlns="http://maven.apache.org/POM/4.0.0"
@@ -85,7 +85,7 @@
     <name>webflow</name>
     <version>1.0-SNAPSHOT</version>    
     <packaging>bundle</packaging>
-    <description>This is the custom profile module (webflow) for running on a Digital Factory server.</description>
+    <description>This is the custom module (webflow) for running on a Digital Factory server.</description>
 
     <scm>
         <connection>scm:dummy:uri</connection>
@@ -115,7 +115,6 @@
                 <extensions>true</extensions>
                 <configuration>
                     <instructions>
-                        <Jahia-Module-Type>templatesSet</Jahia-Module-Type>
                         <Jahia-Depends>default</Jahia-Depends>
                     </instructions>
                 </configuration>

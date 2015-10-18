@@ -2,62 +2,56 @@
 <content xmlns:j="http://www.jahia.org/jahia/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0">
     <modules jcr:primaryType="jnt:modules">
         <webflow j:dependencies="default"
-               j:installedModules="webflow"
-               j:modulePriority="0"
-               j:moduleType="templatesSet"
-               j:title="webflow"
-               jcr:mixinTypes="jmix:hasExternalProviderExtension"
-               jcr:primaryType="jnt:module">
-                <sources jcr:mixinTypes="jmix:hasExternalProviderExtension"
-                  jcr:primaryType="jnt:moduleVersionFolder"
-                  j:staticMountPointProviderKey="module-webflow-1.0-SNAPSHOT">
-                    <src jcr:primaryType="jnt:folder">
-                        <main jcr:primaryType="jnt:folder">
-                            <resources jcr:primaryType="jnt:folder">
-                                <META-INF jcr:primaryType="jnt:metaInfFolder">
-                                    <definitions.cnd jcr:primaryType="jnt:definitionFile"/>
-                                </META-INF>
-                            </resources>
-                        </main>
-                    </src>
-                </sources>
+                 j:modulePriority="0"
+                 j:moduleType="module"
+                 j:title="webflow"
+                 jcr:mixinTypes="jmix:hasExternalProviderExtension"
+                 jcr:primaryType="jnt:module">
+            <sources jcr:mixinTypes="jmix:hasExternalProviderExtension"
+                     jcr:primaryType="jnt:moduleVersionFolder"
+                     j:staticMountPointProviderKey="module-webflow-1.0-SNAPSHOT">
+                <src jcr:primaryType="jnt:folder">
+                    <main jcr:primaryType="jnt:folder">
+                        <resources jcr:primaryType="jnt:folder">
+                            <wfnt_form jcr:primaryType="jnt:nodeTypeFolder">
+                                <html jcr:primaryType="jnt:templateTypeFolder">
+                                    <form.update.flow jcr:primaryType="jnt:folder">
+                                        <flow.xml jcr:primaryType="jnt:xmlFile"/>
+                                    </form.update.flow>
+                                        <form.jsp jcr:primaryType="jnt:viewFile"/>
+                                </html>
+                            </wfnt_form>
+                            <META-INF jcr:primaryType="jnt:metaInfFolder">
+                                <definitions.cnd jcr:primaryType="jnt:definitionFile"/>
+                            </META-INF>
+                        </resources>
+                    </main>
+                </src>
+            </sources>
 
             <portlets jcr:primaryType="jnt:portletFolder"/>
             <files jcr:primaryType="jnt:folder"/>
             <contents jcr:primaryType="jnt:contentFolder"/>
-            <templates jcr:primaryType="jnt:templatesFolder">
-                <files jcr:primaryType="jnt:folder">
-                    <themes jcr:primaryType="jnt:folder">
-                            <default jcr:primaryType="jnt:folder"/>
-                    </themes>
-                </files>
+            <templates j:rootTemplatePath="/base" jcr:primaryType="jnt:templatesFolder">
+                <files jcr:primaryType="jnt:folder"/>
                 <contents jcr:primaryType="jnt:contentFolder"/>
-                    <base j:theme="/modules/webflow/templates/files/themes/default"
-                  j:view="webflow"
-                  jcr:mixinTypes="jmix:theme"
-                  jcr:primaryType="jnt:template">
-                    <home jcr:primaryType="jnt:pageTemplate"/>
-                    <simple jcr:primaryType="jnt:pageTemplate"/>
-                </base>
-                    <content-template j:applyOn="jnt:content"
-                              j:hiddenTemplate="true"
-                              j:priority="1"
-                              j:view="webflow"
-                              jcr:primaryType="jnt:contentTemplate">
+                <webflow-update j:applyOn="wfnt:form"
+                                j:defaultTemplate="false"
+                                j:hiddenTemplate="false"
+                                jcr:primaryType="jnt:contentTemplate">
+                    <j:translation_en j:workInProgress="false"
+                                      jcr:language="en"
+                                      jcr:mixinTypes="mix:title"
+                                      jcr:primaryType="jnt:translation"
+                                      jcr:title="webflow-update"/>
                     <pagecontent jcr:primaryType="jnt:contentList">
-                            <main-resource-display j:mainResourceView="default" jcr:primaryType="jnt:mainResourceDisplay"/>
+                        <main-resource-display j:mainResourceView="update"
+                                               j:workInProgress="false"
+                                               jcr:primaryType="jnt:mainResourceDisplay"/>
                     </pagecontent>
-                </content-template>
+                </webflow-update>
             </templates>
-                
-                <home j:isHomePage="true"
-               j:templateName="home"
-               jcr:primaryType="jnt:page">
-                    <j:translation_en jcr:language="en"
-                              jcr:mixinTypes="mix:title"
-                              jcr:primaryType="jnt:translation"
-                              jcr:title="Home"/>
-                </home>
+
         </webflow>
     </modules>
 </content>
