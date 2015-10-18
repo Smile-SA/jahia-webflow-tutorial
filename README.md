@@ -55,39 +55,42 @@ A tout moment, dans le processus, il sera possible d'annuler nos modifications.
 
 ![Annulation des modifications](doc/7b.png)
 
+## Structure d'un webflow
 
-## La structure d'un webflow
------------------------------
-Un webflow sous Jahia comporte plusieurs fichiers principaux qu'il est important de connaître.
+Un webflow fonctionnant sous Digital Factory se défini par plusieurs fichiers.
 Il est important de comprendre le rôle de chacun de ces fichiers:
-1. flow.xml : ce fichier xml va contenir le squelette de notre webflow, c'est à dire la liste et l'ordre des étapes du webflow ainsi que la définition des beans java utilisés par celui-ci. C'est le cœur de notre webflow.
-2. *.jsp : ces fichiers vont contenir les vues utilisées par les différentes étapes de notre webflow. Dans ces vues il y aura le code HTML des différents formulaires.
-3. handler.java : cette class Java va contenir le traitement appelé à la fin du webflow. Dans notre exemple c'est cette class qui va créer un compte à partir des informations recueillis depuis le weblflow.
-4. object.java : cette class Java va contenir un objet correspondant aux informations partagées par les différentes étapes du webflow. Dans notre exemple, il y aura informations du compte tel que l'adresse email, le numéro de téléphone mobile et fixe.  
+1. Model.java : cette classe Java va contenir un objet correspondant aux informations partagées par les différentes étapes du webflow. Dans notre exemple, il y aura informations du compte tel que l'adresse email, le numéro de téléphone mobile et fixe.  
+2. view.jsp : ces fichiers vont contenir les vues utilisées par les différentes étapes de notre webflow. Dans ces vues il y aura le code HTML des différents formulaires.
+3. flow.xml : ce fichier xml va contenir le squelette de notre webflow, c'est à dire la liste et l'ordre des étapes du webflow ainsi que la définition des beans java utilisés par celui-ci. C'est le cœur de notre webflow.
+4. Handler.java : cette classe Java va contenir le traitement appelé à la fin du webflow. Dans notre exemple c'est cette classe qui va créer un compte à partir des informations recueillis depuis le weblflow.
 
-## Déclaration du composant
------------------------------
-Tout d'abord, nous allons commencer par déclarer notre composant ainsi que sont namespace dans le fichier definitions.cnd
-Rappel : le fichier defintions.cnd est localisé dans le dossier src/main/resources/META-INF/
-Nous allons créer deux namespace dans ce fichier, un namespace correspondant aux node types de smile et un namespace correspondant aux mixins de smile.
-Le code suivant déclare les deux namespaces dont nous aurons besoin:
+## Définitions
+
+Pour commencer, nous allons déclarer notre composant ainsi que son namespace dans le fichier `definitions.cnd`
+Le fichier `definitions.cnd` est localisé dans le dossier _src/main/resources/META-INF/_.
+
+Nous allons créer deux namespaces dans ce fichier, un premier correspondant aux node types et un second correspondant aux mixins.
+
+```jackrabbit
+<wfnt = 'http://www.smile.fr/jahia/webflow/nt/1.0'>
+<wfmix = 'http://www.smile.fr/jahia/webflow/mix/1.0'>
 ```
-<snt = 'http://www.smile.fr/jahia/nt/1.0'>
-<smix = 'http://www.smile.fr/jahia/mix/1.0'>
+
+Ensuite, nous allons créer une mixin héritant de `jmix:droppableContent`, cela va nous permettre de créer une entrée de menu et de glisser-déposer notre composant dans une page.
+
+```jackrabbit
+[wfmix:webflowContent] > jmix:droppableContent mixin
 ```
-Nous allons en suite créer une mixine héritante de la mixine "jmix:droppableContent", cela va nous permettre de gliser déposer notre composant dans une page.
-```
-[smix:smileContent] > jmix:droppableContent mixin
-```
+
 Finalement, nous allons déclarer notre composant, ce composant va hériter de la mixine "smix:smileContent" pour pouvoir être glisé-déposé ainsi que du node type "jnt:content".
+
+```jackrabbit
+[wfnt:form] > jnt:content, wfmix:webflowContent
 ```
-[snt:updateContactInfos] > jnt:content, smix:smileContent
-```
-Sauvegardez et compilez, et le composant devrais donc apparaître dans la liste des contenues du mode édition.
-![alt text](img/screen-shot-2.jpg)
+Sauvegardez et compilez. Le composant devrait donc apparaître dans la liste des contenus du mode édition.
 
 ## Création de l’arborescence
-------------------------------
+
 Dans le dossier "src/main/resources", nous allons créer une arboréscence correspondant à notre composant.
 Tout d’abord il faut créer un dossier correspondant au nom du composant. Le nom de ce dossier se compose de la manière suivante : "namespace du composant" + "_" + "nom du composant en camelCase"
 Pour notre exemple, nous allons donc nommer ce dossier "snt\_updateContactInfos".
