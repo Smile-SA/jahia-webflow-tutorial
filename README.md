@@ -67,7 +67,7 @@ Il est important de comprendre le rôle de chacun de ces fichiers:
 ## Définitions
 
 Pour commencer, nous allons déclarer notre composant ainsi que son namespace dans le fichier `definitions.cnd`
-Le fichier `definitions.cnd` est localisé dans le dossier _src/main/resources/META-INF/_.
+Ce fichier est localisé dans le dossier _src/main/resources/META-INF/_.
 
 Nous allons créer deux namespaces dans ce fichier, un premier correspondant aux node types et un second correspondant aux mixins.
 
@@ -168,7 +168,7 @@ Créez une balise fermente "\<var />" contenant un attribut "name" et un attribu
 Voici le code de la balise complète:
 
 ```xml
-    <var name="contactInfo" class="fr.smile.jahia.model.ContactInfo"/>
+<var name="contactInfo" class="fr.smile.jahia.model.ContactInfo"/>
 ```
 Faites bien attention à bien faire correspondre la valeur de l'attribut `name` 
 avec la valeur de l'attribut `modelAttribute` utilisée dans la vue.
@@ -182,7 +182,7 @@ Il est également important d'ajouter un attribut "name"
 dont la valeur est composé de la manière suivante : "_eventId_" + "id du button".
 
 ```html
-    <button id="finish" type="submit" name="_eventId_finish">Finish</button>
+<button id="finish" type="submit" name="_eventId_finish">Finish</button>
 ```
 
 Dans le fichier `flow.xml`, dans la balise `<view-state />` correspondant à votre vue, 
@@ -195,7 +195,7 @@ et l'attribut `to` qui correspond à l'ID de la vue appelée.
 Voici à quoi ressemble le code de notre exemple : 
 
 ```xml
-    <transition on="next" to="step2" />
+<transition on="next" to="step2" />
 ```
 
 Bien sur la vue appelée par cette transition n'existe pas encore, c'est à vous de la créer. :)
@@ -214,13 +214,13 @@ Cette class va traiter les données du webflow contenues dans l'objet que nous a
 Donc le méthode doit prendre en paramètre cet objet.
 
 ```java
-    private static final Logger logger = LoggerFactory.getLogger(ContactInfoHandler.class);
+private static final Logger logger = LoggerFactory.getLogger(ContactInfoHandler.class);
 ```
 
 Pour logger des information, vous pouvez utiliser la ligne de code suivante:
 
 ```java
-    logger.debug("Updating contact information : " + contactInfo.toString());
+logger.debug("Updating contact information : " + contactInfo.toString());
 ```
 
 Une fois cette classe de traitement créée, il faut la déclarer dans le fichier `flow.xml`.  
@@ -230,7 +230,7 @@ Cette déclaration se fait de la même manière que pour l'objet.
 * Ajoutez lui un attribut `class` qui correspond à la classe de traitement.
 
 ```xml
-  	<var name="handler" class="fr.smile.jahia.handler.ContactInfoHandler"/>
+  <var name="handler" class="fr.smile.jahia.handler.ContactInfoHandler"/>
 ```
 
 Il faut ensuite lier cette méthode `update()` à un bouton. 
@@ -239,11 +239,11 @@ Ajoutez une balise `<transition/>` et à l'intérieur de celle-ci, ajoutez une b
 Cette balise doit comporter l'attribut `expression`.
 
 ```xml
-    <view-state id="summary" model="contactInfo">
-        <transition on="previous" to="step3" bind="false"/>
-        <transition on="finish" to="success" bind="false">
-            <evaluate
-                    expression="handler.update(contactInfo, externalContext.nativeRequest.getAttribute('currentResource').node)"/>
-        </transition>
-    </view-state>
+<view-state id="summary" model="contactInfo">
+    <transition on="previous" to="step3" bind="false"/>
+    <transition on="finish" to="success" bind="false">
+        <evaluate
+                expression="handler.update(contactInfo, externalContext.nativeRequest.getAttribute('currentResource').node)"/>
+    </transition>
+</view-state>
 ```
