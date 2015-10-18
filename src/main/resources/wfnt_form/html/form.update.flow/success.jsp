@@ -8,6 +8,6 @@
     <p class="text-success">Vos informations ont bien &eacute;t&eacute; modifi&eacute;es!</p>
 
     <div class="pull-right">
-        <a class="btn btn-success" href="${backUrl}?reload=true">Retour</a>
+        <a class="btn btn-success" href="${backUrl}">Retour</a>
     </div>
 </div>
