@@ -1,22 +1,44 @@
 Digital Factory et Webflow
 ==========================
 
-I. Introduction
----------------
+## Introduction
 
 Les webflows sont des formulaires complexes qui se présentent sur plusieurs étapes s'affichant sur plusieurs pages. 
 Webflow n'est pas un nouveau concept mais une solution éprouvée de [Spring](http://projects.spring.io/spring-webflow/).
 Sergiy Shyrkov (de Jahia) nous propose une [démo de Webflow](https://github.com/shyrkov/jahia-spring-webflow-showcase) qui fera un très bon complément à cette présentation.
 
-Cette présentation nécessite une connaissance des concepts Jahia basiques tels que la création de vues et de la contribution.
+Cette présentation nécessite une connaissance des concepts Jahia basiques tels que la création de vues et la contribution.
 L'objectif est d'apprendre à réaliser des webflows sous Digital Factory de Jahia. 
 
-La grande force de Digital Factory est qu'elle fait partie des CMS où l'on maitrise 100% du code généré,
-Nous en profiterons pour produire des formulaires accessibles pendant cette présentation.
+La grande force de Digital Factory est qu'elle fait partie des CMS où l'on maitrise 100% du code généré, 
+nous en profiterons pour produire des formulaires accessibles pendant cette présentation.
 
-Nous prendrons comme exemple une démarche de mise à jour d'informations de contact en plusieurs étapes.
+## Présentation
 
-II. La structure d'un webflow
+Nous prendrons comme exemple une démarche de mise à jour d'informations de contact de l'utilisateur courant sur plusieurs étapes.
+
+![Vue par défaut](doc/1.png)  
+
+![Première étape de modification, l'adresse email](doc/2.png)
+
+![Première étape de modification, l'adresse email modifiée](doc/3.png)  
+
+![Deuxième étape de modification, le numéro de téléphone fixe](doc/4.png)
+
+![Troisième étape de modification, le numéro de téléphone mobile](doc/5.png)  
+
+![Quatrième étape, la vérification](doc/6.png)
+
+![Confirmation des modifications](doc/7.png)  
+
+![Vue par défaut modifiée](doc/8.png)
+
+### Annulation
+
+![Annulation des modifications](doc/7b.png)
+
+
+## La structure d'un webflow
 -----------------------------
 Un webflow sous Jahia comporte plusieurs fichiers principaux qu'il est important de connaître.
 Il est important de comprendre le rôle de chacun de ces fichiers:
@@ -25,7 +47,7 @@ Il est important de comprendre le rôle de chacun de ces fichiers:
 3. handler.java : cette class Java va contenir le traitement appelé à la fin du webflow. Dans notre exemple c'est cette class qui va créer un compte à partir des informations recueillis depuis le weblflow.
 4. object.java : cette class Java va contenir un objet correspondant aux informations partagées par les différentes étapes du webflow. Dans notre exemple, il y aura informations du compte tel que l'adresse email, le numéro de téléphone mobile et fixe.  
 
-III. Déclaration du composant
+## Déclaration du composant
 -----------------------------
 Tout d'abord, nous allons commencer par déclarer notre composant ainsi que sont namespace dans le fichier definitions.cnd
 Rappel : le fichier defintions.cnd est localisé dans le dossier src/main/resources/META-INF/
@@ -46,7 +68,7 @@ Finalement, nous allons déclarer notre composant, ce composant va hériter de l
 Sauvegardez et compilez, et le composant devrais donc apparaître dans la liste des contenues du mode édition.
 ![alt text](img/screen-shot-2.jpg)
 
-IV. Création de l’arborescence
+## Création de l’arborescence
 ------------------------------
 Dans le dossier "src/main/resources", nous allons créer une arboréscence correspondant à notre composant.
 Tout d’abord il faut créer un dossier correspondant au nom du composant. Le nom de ce dossier se compose de la manière suivante : "namespace du composant" + "_" + "nom du composant en camelCase"
@@ -55,11 +77,11 @@ Dans ce dossier nous allons créer un dossier "html", ce dossier contiendra les 
 Finalement, nous allons créer dans ce dossier, un dernier dossier nommé de la manière suivante : "nom du composant en camelCase" + "." + "flow"
 L’arborescence devrait donc ressembler à ça "src/main/resources/snt\_updateContactInfos/html/updateContactInfos.flow/".
 
-V. Création du flow.xml
-------------------------
+## Création du flow.xml
+
 Dans le dossier "updateContactInfos.flow", créez un fichier nommé "flow.xml".
 Vous trouverez ci-dessous le code de base du flow:
-```
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <flow xmlns="http://www.springframework.org/schema/webflow" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
     xsi:schemaLocation="http://www.springframework.org/schema/webflow http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd">
@@ -67,18 +89,18 @@ Vous trouverez ci-dessous le code de base du flow:
 ```
 Les étapes du flow seront incluses entre les balises "\<flow>\</flow>".
 Pour créer une étape, ajoutez donc le balise suivante entre les baslises "\<flow>\</flow>":
-```
+```xml
 <view-state id="viewName"></view-state>    
 ```
 Pensez bien à modifier la valeur de l'attribut "id" car il va correspondre à notre vue JSP. La première étape de notre
 webflow sera une page récapitulative des informations de contact. Changez donc la valeur de l'id de la view-state en "resumeContactInfos".
 
-VI. Création des vues
----------------------
+## Création des vues
+
 Nous allons maintenant créer une vue JSP correspondante à l'étape que nous avons créée dans le "flow.xml"
 Créez un fichier dans le même dossier que le "flow.xml" et nommez le de la même manière que l'id de l'étape précédemment créée.
 Cette vue JSP va donc contenir le code HTML du formulaire. Vous pouvez vous inspirer de l'exemple ce code suivant:
-```
+```java
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
 <form:form modelAttribute="contactInfos" method="post" >
@@ -102,8 +124,8 @@ Cette vue JSP va donc contenir le code HTML du formulaire. Vous pouvez vous insp
 Nous pouvons voir que la balise "form" contient un attribut nommé "modelAttribute". La valeur de cet attribut correspond à l'id du bean spring utilisé pour stocker les informations du webflow.
 Pour l'instant, nous n'avons encore déclaré aucun bean nommé "contactInfos" donc si vous affichez la page, il y aura une erreur.
 
-VII. Création de l'objet Java
------------------------------
+## Création de l'objet Java
+
 Créez une nouvelle class Java dans le dossier "src/main/java" et nommez la "ContactInfos.java" par exemple.
 Cette class doit étendre la class Serializable pour pouvoir être stocké.
 Créez les variables dont vous aurez besoin, il vous faut une variable pour chaque champs de formulaire présent dans le webflow.
