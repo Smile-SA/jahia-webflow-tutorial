@@ -5,8 +5,8 @@ Table des matières
 ------------------
 * [Introduction](#introduction)
 * [Présentation](#présentation)
-* [Structure d'un webflow](#structure-d-un-webflow)
-* [Définition de l'objet de contenu](#définition-de-l-objet-de-contenu)
+* [Structure d'un webflow](#structure-dun-webflow)
+* [Définition de l'objet de contenu](#définition-de-lobjet-de-contenu)
 * [Définitions des vues de cet objet de contenu](#définitions-des-vues-de-cet-objet-de-contenu)
 * [Configuration du webflow](#configuration-du-webflow)
 * [Création de la vue de la première étape](création-de-la-vue-de-la-première-étape)
