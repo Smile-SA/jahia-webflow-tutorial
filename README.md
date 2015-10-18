@@ -17,23 +17,41 @@ nous en profiterons pour produire des formulaires accessibles pendant cette pré
 
 Nous prendrons comme exemple une démarche de mise à jour d'informations de contact de l'utilisateur courant sur plusieurs étapes.
 
+### Vue par défaut
+
 ![Vue par défaut](doc/1.png)  
+
+### Modification de l'adresse email
 
 ![Première étape de modification, l'adresse email](doc/2.png)
 
+### Modification de l'adresse email modifiée
+
 ![Première étape de modification, l'adresse email modifiée](doc/3.png)  
+
+### Modification du numéro de téléphone fixe
 
 ![Deuxième étape de modification, le numéro de téléphone fixe](doc/4.png)
 
+### Modification du numéro de téléphone mobile
+
 ![Troisième étape de modification, le numéro de téléphone mobile](doc/5.png)  
+
+### Vérification
 
 ![Quatrième étape, la vérification](doc/6.png)
 
+### Confirmation
+
 ![Confirmation des modifications](doc/7.png)  
+
+### Vue par défaut modifiée
 
 ![Vue par défaut modifiée](doc/8.png)
 
 ### Annulation
+
+A tout moment, dans le processus, il sera possible d'annuler nos modifications.
 
 ![Annulation des modifications](doc/7b.png)
 
