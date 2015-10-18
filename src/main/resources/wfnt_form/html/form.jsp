@@ -38,3 +38,5 @@
         </a>
     </div>
 </div>
+
+<template:addCacheDependency node="${currentUser}"/>
