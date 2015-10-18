@@ -24,8 +24,6 @@ public class ContactInfoHandler implements Serializable {
                     public Boolean doInJCR(JCRSessionWrapper session) throws RepositoryException {
                         final JCRUserNode userNode = session.getUserNode();
                         userNode.setProperty("j:email", contactInfo.getEmail());
-                        //userNode.setProperty("phone", contactInfo.getPhone());
-                        //userNode.setProperty("mobile", contactInfo.getMobile());
                         session.save();
                         return Boolean.TRUE;
                     }
