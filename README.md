@@ -18,7 +18,8 @@ Table des matières
 
 Les webflows sont des formulaires complexes qui se présentent sur plusieurs étapes s'affichant sur plusieurs pages. 
 Webflow n'est pas un nouveau concept mais une solution éprouvée de [Spring](http://projects.spring.io/spring-webflow/).
-Sergiy Shyrkov (de Jahia) nous propose une [démo de Webflow](https://github.com/shyrkov/jahia-spring-webflow-showcase) qui fera un très bon complément à cette présentation.
+Sergiy Shyrkov (de Jahia) nous propose une [démo de Webflow](https://github.com/shyrkov/jahia-spring-webflow-showcase) qui fera un très bon complément.
+Jahia nous offre aussi la transcription de la [présentation de Sergiy lors de Jahia One 2014](https://www.jahia.com/files/live/sites/jahiacom/files/Resources/docs/7.x/7.1/en/DF7.1_SPRING_WEB_FLOW.pdf).
 
 Cette présentation nécessite une connaissance des concepts Jahia basiques tels que la création de vues et la contribution.
 L'objectif est d'apprendre à réaliser des webflows sous Digital Factory de Jahia. 
