@@ -64,7 +64,7 @@ Il est important de comprendre le rôle de chacun de ces fichiers:
 3. flow.xml : ce fichier xml va contenir le squelette de notre webflow, c'est à dire la liste et l'ordre des étapes du webflow ainsi que la définition des beans java utilisés par celui-ci. C'est le cœur de notre webflow.
 4. Handler.java : cette classe Java va contenir le traitement appelé à la fin du webflow. Dans notre exemple c'est cette classe qui va créer un compte à partir des informations recueillis depuis le weblflow.
 
-## Définitions
+## Définition de l'objet de contenu
 
 Pour commencer, nous allons déclarer notre composant ainsi que son namespace dans le fichier `definitions.cnd`
 Ce fichier est localisé dans le dossier _src/main/resources/META-INF/_.
@@ -89,7 +89,7 @@ Finalement, nous allons déclarer notre composant, ce composant va hériter de l
 ```
 Sauvegardez et compilez. Le composant devrait donc apparaître dans la liste des contenus du mode édition.
 
-## Arborescence
+## Définitions des vues de cet objet de contenu
 
 Dans le dossier "src/main/resources", nous allons créer une arboréscence correspondant à notre composant.
 Tout d’abord il faut créer un dossier correspondant au nom du composant. Le nom de ce dossier se compose de la manière suivante : "namespace du composant" + "_" + "nom du composant en camelCase"
@@ -98,7 +98,7 @@ Dans ce dossier nous allons créer un dossier "html", ce dossier contiendra les 
 Finalement, nous allons créer dans ce dossier, un dernier dossier nommé de la manière suivante : "nom du composant en camelCase" + "." + "flow"
 L’arborescence devrait donc ressembler à ça "src/main/resources/snt\_updateContactInfos/html/updateContactInfos.flow/".
 
-## Définition du webflow
+## Configuration du webflow
 
 Dans le dossier _src/main/resources/wf_form/html/form.update.flow/", 
 créez un fichier nommé `flow.xml`.
@@ -124,7 +124,7 @@ Pensez bien à modifier la valeur de l'attribut `id` car il va correspondre à n
 La première étape de notre webflow sera une page récapitulative des informations de contact. 
 Changez donc la valeur de l'id de la view-state en "step1".
 
-## Création des vues
+## Création de la vue de la première étape
 
 Nous allons maintenant créer une vue JSP correspondante à l'étape que nous avons créée dans le "flow.xml"
 Créez un fichier dans le même dossier que le "flow.xml" et nommez le de la même manière que l'id de l'étape précédemment créée.
@@ -157,7 +157,7 @@ La valeur de cet attribut correspond à l'id du bean spring utilisé pour stocke
 Pour l'instant, nous n'avons encore déclaré aucun bean nommé "contactInfo" donc si vous affichez la page, 
 il y aura une erreur.
 
-## Model
+## Modèle
 
 Créez une nouvelle class Java dans le dossier "src/main/java" et nommez la "ContactInfos.java" par exemple.
 Cette class doit étendre la class Serializable pour pouvoir être stocké.
