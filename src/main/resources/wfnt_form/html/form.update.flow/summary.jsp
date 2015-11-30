@@ -23,11 +23,13 @@
             <fmt:message key="wfnt_form.phone"/>
         </dt>
         <dd>
+        	${fn:escapeXml(contactInfo.phone)}
         </dd>
         <dt>
             <fmt:message key="wfnt_form.mobile"/>
         </dt>
         <dd>
+        	${fn:escapeXml(contactInfo.mobile)}
         </dd>
     </dl>
 

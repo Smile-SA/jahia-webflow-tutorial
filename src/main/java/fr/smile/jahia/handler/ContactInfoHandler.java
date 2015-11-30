@@ -44,6 +44,8 @@ public class ContactInfoHandler implements Serializable {
 
                         final JCRUserNode userNode = session.getUserNode();
                         userNode.setProperty("j:email", contactInfo.getEmail());
+                        userNode.setProperty("j:phoneNumber", contactInfo.getPhone());
+                        userNode.setProperty("j:mobileNumber", contactInfo.getMobile());
                         session.save();
                         logger.debug("JCR Session was saved!");
 

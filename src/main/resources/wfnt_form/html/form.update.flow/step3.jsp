@@ -3,7 +3,9 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
-<c:set var="values" value="${currentNode.propertiesAsString}"/>
+<c:if test="${not empty currentNode.user.properties['j:mobileNumber'].string }">
+    <c:set var="filledMobile" value="${fn:escapeXml(currentNode.user.properties['j:mobileNumber'].string)}"/>
+</c:if>
 
 <div class="well span6" style="float:none;margin:0 auto">
     <div class="clearfix">
@@ -20,7 +22,7 @@
                 <label class="control-label" for="mobile"><fmt:message key="wfnt_form.mobile"/> :</label>
 
                 <div class="controls">
-                    <form:input path="mobile" type="tel" id="mobile" name="mobile" value="${values.mobile}"/>
+                    <form:input path="mobile" type="tel" id="mobile" name="mobile" value="${filledMobile}"/>
                 </div>
             </div>
             <div class="form-actions">
