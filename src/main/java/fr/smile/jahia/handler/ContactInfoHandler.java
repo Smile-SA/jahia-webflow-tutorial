@@ -17,7 +17,9 @@ import java.io.Serializable;
  */
 public class ContactInfoHandler implements Serializable {
 
-    private static final Logger logger = LoggerFactory.getLogger(ContactInfoHandler.class);
+	private static final long serialVersionUID = 1L;
+	
+	private static final Logger logger = LoggerFactory.getLogger(ContactInfoHandler.class);
 
     /**
      * Update current user contact information

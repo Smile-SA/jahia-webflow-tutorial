@@ -561,3 +561,22 @@ Ici nous allons modifier la transition finish de la vue summary.
 ```
 
 Complétez le corps de la méthode update pour mettre à jour l'utilisateur Jahia courant.
+
+
+## Validation de formulaire
+
+Webflow permet de mettre en place des mécanismes de validation des champs de formulaire.
+
+Par exemple, pour rendre le champ email requis et devant obligatoirement être au format d'une adresse email, il suffit d'annoter le champ du bean modèle avec 
+`org.hibernate.validator.constraints.NotEmpty` et `org.hibernate.validator.constraints.Email`.
+
+ContactInfo.java
+```java
+@NotEmpty
+@Email
+private String email;
+```
+
+Si une de ces contraintes n'est pas respéctée, l'utilisateur restera sur la même étape et un message d'erreur sera affiché.
+
+Ces deux validateurs proviennent d'Hibernate mais d'autres peuvent être trouvés par exemple dans les packages `javax.validation.constraints.*` et `org.springframework.format.annotation.*`.
