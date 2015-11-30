@@ -11,6 +11,7 @@ Table des matières
 * [Vues et transitions](#vues-et-transitions)
 * [Modèle](#modèle)
 * [Traitements du webflow](#traitements-du-webflow)
+* [Validation de formulaire](#validation-de-formulaire)
 
 ## Introduction
 
