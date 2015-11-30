@@ -96,7 +96,7 @@ Ensuite, nous allons créer un mixin héritant de `jmix:droppableContent`, cela 
 [wfmix:webflowContent] > jmix:droppableContent mixin
 ```
 
-Finalement, nous allons déclarer notre composant. Celui-ci va hériter de la mixin "wfmix:webflowContent" pour pouvoir être glissé-déposé, ainsi que du node type "jnt:content".
+Finalement, nous allons déclarer notre composant. Celui-ci va hériter de la mixin `wfmix:webflowContent` pour pouvoir être glissé-déposé, ainsi que du node type `jnt:content`.
 
 ```jackrabbit
 [wfnt:form] > jnt:content, wfmix:webflowContent
@@ -105,16 +105,16 @@ Sauvegardez et compilez. Le composant devrait donc apparaître dans la liste des
 
 ### Définition de la vue par défaut du composant
 
-Dans le dossier "src/main/resources", nous allons créer une arboréscence contenant les différentes vues de notre composant.
+Dans le dossier _src/main/resources_, nous allons créer une arboréscence contenant les différentes vues de notre composant.
 Tout d’abord il faut créer un dossier correspondant au nom du composant. Le nom de ce dossier se compose de la manière suivante : "namespace du composant" + "_" + "nom du composant en camelCase"
-Pour notre exemple, nous allons donc nommer ce dossier "wfnt\_form".
-Dans ce dossier nous allons créer un dossier "html", ce dossier contiendra les vues html.
+Pour notre exemple, nous allons donc nommer ce dossier `wfnt\_form`.
+Dans ce dossier nous allons créer un dossier `html`, ce dossier contiendra les vues html.
 Nous pouvons déjà y créer le fichier form.jsp qui sera la vue par défaut.
 
 
 ## Mise en place de Webflow
 
-Premièrement la configuration spring. Dans src/main/resources créer META-INF/spring/webflow.xml avec le contenu suivant :
+Premièrement la configuration spring. Dans _src/main/resources_ créer _META-INF/spring/webflow.xml_ avec le contenu suivant :
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -131,20 +131,19 @@ Premièrement la configuration spring. Dans src/main/resources créer META-INF/s
 ```
 
 Ces deux beans sont les utilitaires basiques lors de l'utilisation d'un webflow.
-ModuleMessageSource permet l'utilisation des resource bundles pour l'internationalisation de vos vues.
-SpringTypeConversionService permet la validation des valeurs renseignées par les utilisateurs au travers de vos formulaires.
+`ModuleMessageSource` permet l'utilisation des resource bundles pour l'internationalisation de vos vues.
+`SpringTypeConversionService` permet la validation des valeurs renseignées par les utilisateurs au travers de vos formulaires.
 
 Ensuite dans votre dossier de vue, créer un sous-dossier nommé de la manière suivante : nom du composant en camelCase + "." + nom du webflow + ".flow"
-L’arborescence devrait donc ressembler à ça "src/main/resources/wfnt\_form/html/form.update.flow/".
+L’arborescence devrait donc ressembler à ça _src/main/resources/wfnt\_form/html/form.update.flow/_.
 
-Ce dossier contiendra d'une part les vues dédiées au webflow et d'autre part sa définition grâce au fichier flow.xml.
+Ce dossier contiendra d'une part les vues dédiées au webflow et d'autre part sa définition grâce au fichier `flow.xml`.
 
 ## Vues et transitions
 
 ### Configuration du webflow
 
-Dans le dossier _src/main/resources/wf_form/html/form.update.flow/", 
-créez un fichier nommé `flow.xml`.
+Dans le dossier _src/main/resources/wf_form/html/form.update.flow/_, créez un fichier nommé `flow.xml`.
 
 Voici le code de base du webflow:
 
@@ -164,7 +163,7 @@ Chaque étape du webflow sera à inclure dans la balise `<flow />` par ce code :
 ```
 
 La première étape de notre webflow sera la page de modification de l'email de l'utilisateur. 
-Changez la valeur de l'id de la view-state en "step1" (c'est ainsi que nous y ferons référence par la suite).
+Changez la valeur de l'id de la view-state en `step1` (c'est ainsi que nous y ferons référence par la suite).
 
 
 ### Création des premières vues
@@ -212,9 +211,7 @@ Pour cette vue par défaut (form.jsp), nous pouvons utiliser ce code pour affich
     </dl>
     
     <div class="pull-right">
-        <c:url value='' var="updateUrl"/>
-        <a class="btn btn-default" href="${updateUrl}"
-           title="Modifier ces informations en commen&ccaron;ant un formulaire sur plusieurs &eacute;tapes">
+        <a class="btn btn-default" href="" title="Modifier ces informations en commen&ccaron;ant un formulaire sur plusieurs &eacute;tapes">
             <fmt:message key="wfnt_form.label.update"/>
         </a>
     </div>
@@ -222,7 +219,7 @@ Pour cette vue par défaut (form.jsp), nous pouvons utiliser ce code pour affich
 ```
 
 Pour la première étape du webflow, il s'agira d'afficher un formulaire permettant de modifier l'adresse email de l'utilisateur puis de passer à l'étape suivante.
-Pour cela nous créons la vue step1.jsp dans le sous-dossier form.update.flow :
+Pour cela nous créons la vue `step1.jsp` dans le sous-dossier _form.update.flow/_ :
 
 ```xml
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -269,7 +266,7 @@ Pour cela nous créons la vue step1.jsp dans le sous-dossier form.update.flow :
 ```
 
 Pour la séconde étape du webflow, il s'agira cette fois de modifier le numéro de téléphone de l'utilisateur.
-Pour cela nous créons la vue step2.jsp dans le sous-dossier form.update.flow :
+Pour cela nous créons la vue `step2.jsp` dans le sous-dossier _form.update.flow/_ :
 
 ```xml
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -324,7 +321,7 @@ Une fois l'application déployée vous pouvez voir la vue par défaut présentan
 Cependant il nous reste à définir comment passer de cette vue à la première étape du webflow.
 Jahia ne reconnaissant pas nativement le "format" webflow pour un composant, il faut importer dans le JCR un nouveau template. Celui sera associé à notre composant form et redirigera vers les vues de notre webflow.
 
-Pour cela créer src/main/import/repository.xml avec ce contenu :
+Pour cela créer _src/main/import/repository.xml_ avec ce contenu :
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -386,9 +383,9 @@ Pour cela créer src/main/import/repository.xml avec ce contenu :
 </content>
 ```
 
-Ainsi nous créons le template "webflow-update" s'appliquant sur "wfnt:form" et redirigeant vers la view "update".
+Ainsi nous créons le template `webflow-update` s'appliquant sur `wfnt:form` et redirigeant vers la view `update`.
 
-Dans form.jsp, modifier la partie se chargeant de l'affichage du lien pour pointer vers ce template.
+Dans `form.jsp`, modifier la partie se chargeant de l'affichage du lien pour pointer vers ce template.
 
 ```xml
 <c:url value='${url.base}${currentNode.path}.webflow-update.html' var="updateUrl"/>
@@ -398,12 +395,12 @@ Dans form.jsp, modifier la partie se chargeant de l'affichage du lien pour point
 </a>
 ```
 
-Vous pouvez tester l'application. En utilisant ce template, Webflow se charge lui-même de rediriger vers la bonne vue et en l'occurence affichera step1.jsp.
+Vous pouvez tester l'application. En utilisant ce template, Webflow se charge lui-même de rediriger vers la bonne vue et en l'occurence affichera `step1.jsp`.
 
 ### Création des premières transitions
 
-Nous souhaitons maintenant passer de l'étape 1 à l'étape 2. Pour cela nous devons d'abord faire évoluer la définition du webflow dans flow.xml.
-On définit une transition avec la balise <transition />. L'attribut "on" identifie l'action déclencheuse et "to" indique l'étape suivante.
+Nous souhaitons maintenant passer de l'étape 1 à l'étape 2. Pour cela nous devons d'abord faire évoluer la définition du webflow dans `flow.xml`.
+On définit une transition avec la balise `<transition />`. L'attribut `on` identifie l'action déclencheuse et `to` indique l'étape suivante.
 
 ```xml
 <view-state id="step1" model="contactInfo">
@@ -415,7 +412,7 @@ On définit une transition avec la balise <transition />. L'attribut "on" identi
 </view-state> 
 ```
 
-Il y a donc deux transitions : step1 vers step2 sur "next" et step2 vers step1 sur "previous".
+Il y a donc deux transitions : step1 vers step2 sur `next` et step2 vers step1 sur `previous`.
 Voyons comment mentionner ces transition dans les sources.
 
 step1.jsp
@@ -432,7 +429,7 @@ step2.jsp
 </button>
 ```
 
-Il faut donc faire correspondre le "on" de la transition au name du boutton submit préfixé par "_eventId_".
+Il faut donc faire correspondre le `on` de la transition au name du boutton submit préfixé par `_eventId_`.
 
 
 ### Création des vues et transitions restantes
@@ -463,7 +460,7 @@ Success affichera un message de succès et proposera un lien renvoyant sur la vu
 ```
 
 Il est aussi intéressant de proposer une étape d'annulation disponible à partir de toutes les vues.
-On définit une transition globale grâce à la balise <global-transitions>.
+On définit une transition globale grâce à la balise `<global-transitions>`.
 
 ```xml
 <view-state id="cancel"/>
@@ -482,13 +479,13 @@ NB: Pour retourner sur la vue par défault, il suffira par exemple de pointer su
 
 Pour le moment les valeurs de nos formulaires ne sont pas sauvegardées. Pour ce faire nous allons avoir besoin d'une couche modèle.
 
-Créez une nouvelle class Java dans un sous package *.model et nommez la "ContactInfo.java" par exemple.
+Créez une nouvelle class Java dans un sous package `*.model` et nommez la `ContactInfo.java` par exemple.
 Cette classe doit implémenter la class Serializable pour pouvoir être stockée.
 Créez les champs dont vous aurez besoin, il vous faut une variable pour chaque champ présent dans le formulaire.
-Générez les getter et setter correspondant ainsi que la méthode "toString()".
+Générez les getter et setter correspondant ainsi que la méthode `toString()`.
 
-Maintenant nous allons instancier et rendre disponible cette classe dans le "flow.xml".
-Créez une balise "<var />" contenant un attribut "name" et un attribut "class". L'attribut "name" va correspondre au nom du bean et l'attribut "class" va correspondre au nom de la classe.
+Maintenant nous allons instancier et rendre disponible cette classe dans `flow.xml`.
+Créez une balise `<var />` contenant un attribut `name` et un attribut `class`. L'attribut `name` va correspondre au nom du bean et l'attribut `class` va correspondre au nom de la classe.
 
 Le code de la balise complète:
 ```xml
@@ -502,12 +499,12 @@ Ce bean est maintenant accessible par nos formulaires. Pour chacun d'entre eux n
 <form:input path="email" type="email" id="email" name="email" value="${filledEmail}"/>	
 ```
 
-Ici le champ email du formulaire renseigner le champs email du bean contactInfo.
+Ici le champ email du formulaire renseigner le champs email du bean `contactInfo`.
 Faites bien attention à faire correspondre la valeur de l'attribut `name` avec la valeur de l'attribut `modelAttribute` utilisée dans la vue.
 
 Modifiez les trois formulaires du webflow pour que leurs valeurs soient stockées correctement dans contactInfo.
 
-NB : si pour certaines transitions le binding formulaire-bean n'est pas souhaité, on peut doit le préciser : 
+NB : si pour certaines transitions le binding formulaire-bean n'est pas souhaité, on doit le préciser : 
 ```xml
 <view-state id="step2" model="contactInfo">
     <transition on="previous" to="step1"/>
@@ -519,8 +516,8 @@ NB : si pour certaines transitions le binding formulaire-bean n'est pas souhait�
 
 Une fois les différentes étapes construites et notre objet modèle correctement peuplé, nous allons créer une classe de traitement chargée de mettre à jour l'utilisateur.
 
-Créez une classe Java dans un package *.handler et nommez la `ContactInfoHandler`. Cette classe doit implémenter la classe `java.io.Serializable`.
-Dans cette classe, créer une méthode nommée "update".
+Créez une classe Java dans un package `*.handler` et nommez la `ContactInfoHandler`. Cette classe doit implémenter la classe `java.io.Serializable`.
+Dans cette classe, créer une méthode nommée `update`.
 Cette méthode va traiter les données du webflow contenues dans l'objet que nous avons créé, elle doit donc prendre en paramètre cet objet.
 Il peut également être intéressant de passer les informations du node Jahia courant afin de bénéficier de son contexte.
 
@@ -537,7 +534,7 @@ logger.debug("Updating contact information : " + contactInfo.toString());
 ```
 
 Une fois cette classe de traitement créée, il faut la déclarer dans le fichier `flow.xml`.  
-Cette déclaration se fait de la même manière que pour l'objet contactInfo.  
+Cette déclaration se fait de la même manière que pour l'objet `contactInfo`.  
 * Créez une balise `<var />` 
 * Ajoutez lui un attribut `name` qui sera le nom du bean 
 * Ajoutez lui un attribut `class` qui correspond à la classe de traitement.
@@ -547,8 +544,8 @@ Cette déclaration se fait de la même manière que pour l'objet contactInfo.
 	<var name="handler" class="fr.smile.jahia.handler.ContactInfoHandler"/>
 ```
 
-Il faut ensuite lier cette méthode `update()` à une de vos transitions. 
-Pour ce faire, dans le fichier "flow.xml" et à l'intérieur de la balise `<transition/>` souhaitée, ajoutez une balise `<evaluate />`.
+Il faut ensuite lier la méthode `update()` à une de vos transitions. 
+Pour ce faire, dans le fichier `flow.xml` et à l'intérieur de la balise `<transition/>` souhaitée, ajoutez une balise `<evaluate />`.
 Cette balise doit comporter l'attribut `expression` qui indique le bean et la méthode à appeler.
 Ici nous allons modifier la transition finish de la vue summary.
 
