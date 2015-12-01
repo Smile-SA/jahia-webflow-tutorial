@@ -398,6 +398,8 @@ Dans `form.jsp`, modifier la partie se chargeant de l'affichage du lien pour poi
 
 Vous pouvez tester l'application. En utilisant ce template, Webflow se charge lui-même de rediriger vers la bonne vue et en l'occurence affichera `step1.jsp`.
 
+NB : Pour directement afficher le webflow il est possible de sélectionner la vue `update` comme vue du composant dans le mode édition de Jahia.
+
 ### Création des premières transitions
 
 Nous souhaitons maintenant passer de l'étape 1 à l'étape 2. Pour cela nous devons d'abord faire évoluer la définition du webflow dans `flow.xml`.
@@ -508,7 +510,7 @@ Modifiez les trois formulaires du webflow pour que leurs valeurs soient stockée
 NB : si pour certaines transitions le binding formulaire-bean n'est pas souhaité, on doit le préciser : 
 ```xml
 <view-state id="step2" model="contactInfo">
-    <transition on="previous" to="step1"/>
+    <transition on="previous" to="step1" bind="false" />
     <transition on="next" to="step3"/>
 </view-state>
 ```
@@ -579,5 +581,11 @@ private String email;
 ```
 
 Si une de ces contraintes n'est pas respéctée, l'utilisateur restera sur la même étape et un message d'erreur sera affiché.
+Webflow permet une customisation fine de ces message d'erreur. Il suffit d'ajouter au ResourceBundle de l'application une clé de message :
+nom du modèle + nom du champ en erreur + type d'erreur
 
-Ces deux validateurs proviennent d'Hibernate mais d'autres peuvent être trouvés par exemple dans les packages `javax.validation.constraints.*` et `org.springframework.format.annotation.*`.
+Par exemple :
+contactInfo.email.NotEmpty=L'email ne doit pas être vide
+contactInfo.email.Email=L'email n'est pas valide
+
+Les deux validateurs proposés proviennent d'Hibernate mais d'autres peuvent être trouvés par exemple dans les packages `javax.validation.constraints.*` et `org.springframework.format.annotation.*`.
