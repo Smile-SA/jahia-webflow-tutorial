@@ -3,8 +3,8 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
-<c:if test="${not empty currentUser.properties['j:email'] }">
-    <c:set var="filledEmail" value="${fn:escapeXml(currentUser.properties['j:email'])}"/>
+<c:if test="${not empty currentNode.user.properties['j:email'].string }">
+    <c:set var="filledEmail" value="${fn:escapeXml(currentNode.user.properties['j:email'].string)}"/>
 </c:if>
 
 <div class="well span6" style="float:none;margin:0 auto">

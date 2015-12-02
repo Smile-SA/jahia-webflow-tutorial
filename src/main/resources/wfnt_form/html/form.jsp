@@ -5,8 +5,6 @@
 <%@ taglib prefix="template" uri="http://www.jahia.org/tags/templateLib" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
-<c:set var="values" value="${currentUser.properties}"/>
-
 <div class="well span6" style="float:none;margin:0 auto">
     <h2>Informations de contact</h2>
     <dl class="dl-horizontal">
@@ -22,15 +20,21 @@
             <fmt:message key="wfnt_form.phone"/>
         </dt>
         <dd>
+        	<c:if test="${not empty currentUser.properties['j:phoneNumber'] }">
+                ${fn:escapeXml(currentUser.properties['j:phoneNumber'])}
+            </c:if>
         </dd>
         <dt>
             <fmt:message key="wfnt_form.mobile"/>
         </dt>
         <dd>
+        	<c:if test="${not empty currentUser.properties['j:mobileNumber'] }">
+                ${fn:escapeXml(currentUser.properties['j:mobileNumber'])}
+            </c:if>
         </dd>
     </dl>
+    
     <div class="pull-right">
-
         <c:url value='${url.base}${currentNode.path}.webflow-update.html' var="updateUrl"/>
         <a class="btn btn-default" href="${updateUrl}"
            title="Modifier ces informations en commen&ccaron;ant un formulaire sur plusieurs &eacute;tapes">
@@ -39,4 +43,4 @@
     </div>
 </div>
 
-<template:addCacheDependency node="${currentUser}"/>
+<template:addCacheDependency node="${currentNode.user}"/>

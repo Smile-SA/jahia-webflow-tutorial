@@ -15,12 +15,12 @@
     </view-state>
 
     <view-state id="step2" model="contactInfo">
-        <transition on="previous" to="step1"/>
+        <transition on="previous" to="step1" bind="false"/>
         <transition on="next" to="step3"/>
     </view-state>
 
     <view-state id="step3" model="contactInfo">
-        <transition on="previous" to="step2"/>
+        <transition on="previous" to="step2" bind="false"/>
         <transition on="next" to="summary"/>
     </view-state>
 
