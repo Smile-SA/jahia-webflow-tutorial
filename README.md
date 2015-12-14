@@ -167,7 +167,7 @@ Changez la valeur de l'id de la view-state en `display` (c'est ainsi que nous y 
 
 
 ## Modèle
-Nous allons créer une couche modele pour manipuler les données du formulaire.
+Nous allons créer une couche modele pour manipuler les données durant notre flow.
 
 Créez une nouvelle class Java dans un sous package `*.model` et nommez la `ContactInfo.java` par exemple.
 Cette classe doit implémenter la class Serializable pour pouvoir être stockée par spring webflow.
@@ -311,7 +311,7 @@ Le bouton mettre à jour présent sur la première vue déclenche la transition 
   <button id="next" class="btn btn-primary" type="submit" name="_eventId_next">
 ```
 
-Cette transition est déclaré dans le flow pour la vue display :
+Cette transition est déclarée dans le flow pour la vue display :
 ```xml
 <view-state id="display" model="contactInfo">
         <transition on="next" to="step1" bind="false"/>
@@ -521,6 +521,6 @@ Les deux validateurs proposés proviennent d'Hibernate mais d'autres peuvent êt
 
 ## Conclusion
 
-Ce tutoriel nous a permis de découvrir comment intégrer et réaliser une IHM complexe avec spring-webflow.
+Ce tutoriel nous a permis de découvrir comment intégrer et réaliser une IHM complexe dans Jahia avec spring-webflow.
 
 
