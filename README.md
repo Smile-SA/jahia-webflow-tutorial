@@ -321,15 +321,16 @@ Cette transition est déclarée dans le flow pour la vue display :
 Il faut faire correspondre le `on` de la transition au name du boutton submit préfixé par `_eventId_`.
 
 Pour la première étape, il s'agira d'afficher un formulaire permettant de modifier l'adresse email de l'utilisateur puis de passer à l'étape suivante.
-Pour cela nous créons la vue `step1.jsp` dans le sous-dossier _form.flow/_ :
+Pour cela nous créons la vue step1 dans le flow.xml et la jsp associée `step1.jsp` dans le sous-dossier _form.flow/_ :
 
+flow.xml
 ```xml
 <view-state id="step1" model="contactInfo">
     <transition on="next" to="step2"/>
 </view-state>
 ```
 
-
+step1.jsp
 ```xml
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
