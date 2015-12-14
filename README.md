@@ -316,7 +316,7 @@ Pour cela nous créons la vue `step2.jsp` dans le sous-dossier _form.update.flow
 </div>
 ```
 
-### Démarrage du flow
+### Démarrage du flow [FIXME : PARAGRAPHE A REVOIR]
 
 Une fois l'application déployée vous pouvez voir la vue par défaut présentant les informations de l'utilisateur ainsi que le lien permettant de les éditer.
 Cependant il nous reste à définir comment passer de cette vue à la première étape du webflow.
