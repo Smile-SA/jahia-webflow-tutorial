@@ -40,5 +40,3 @@
         </form:form>
     </div>
 </div>
-
-<template:addCacheDependency node="${currentNode.user}"/>

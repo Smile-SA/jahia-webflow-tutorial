@@ -11,10 +11,10 @@
     <action-state id="init">
         <evaluate
                 expression="contactInfoHandler.init(contactInfo, externalContext.nativeRequest.getAttribute('currentResource').node)"/>
-        <transition to="step0"/>
+        <transition to="display"/>
     </action-state>
 
-    <view-state id="step0" model="contactInfo">
+    <view-state id="display" model="contactInfo">
         <transition on="next" to="step1" bind="false"/>
     </view-state>
 
