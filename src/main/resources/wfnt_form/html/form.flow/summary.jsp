@@ -6,30 +6,28 @@
 <div class="well span6" style="float:none;margin:0 auto">
     <div class="clearfix">
         <div class="pull-right">
-            <progress max="4" value="4">(Step 4 of 4)</progress>
+            Etapes <progress max="4" value="4">(Step 4 of 4)</progress>
         </div>
     </div>
 
-    <h2>V&eacute;rifier vos modifications</h2>
+    <h2><fmt:message key="wfnt_form.summary.title"/></h2>
 
     <dl class="dl-horizontal">
         <dt>
             <fmt:message key="wfnt_form.email"/>
         </dt>
-        <dd>
-            ${fn:escapeXml(contactInfo.email)}
+        <dd><c:out value="${contactInfo.email}"/>
         </dd>
         <dt>
             <fmt:message key="wfnt_form.phone"/>
         </dt>
-        <dd>
-        	${fn:escapeXml(contactInfo.phone)}
+        <dd><c:out value="${contactInfo.phone}"/>
         </dd>
         <dt>
             <fmt:message key="wfnt_form.mobile"/>
         </dt>
         <dd>
-        	${fn:escapeXml(contactInfo.mobile)}
+            <c:out value="${contactInfo.mobile}"/>
         </dd>
     </dl>
 

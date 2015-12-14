@@ -7,9 +7,17 @@
         ">
 
     <var name="contactInfo" class="fr.smile.jahia.model.ContactInfo"/>
- 
-  	<var name="handler" class="fr.smile.jahia.handler.ContactInfoHandler"/>
- 
+
+    <action-state id="init">
+        <evaluate
+                expression="contactInfoHandler.init(contactInfo, externalContext.nativeRequest.getAttribute('currentResource').node)"/>
+        <transition to="step0"/>
+    </action-state>
+
+    <view-state id="step0" model="contactInfo">
+        <transition on="next" to="step1" bind="false"/>
+    </view-state>
+
     <view-state id="step1" model="contactInfo">
         <transition on="next" to="step2"/>
     </view-state>
@@ -28,7 +36,7 @@
         <transition on="previous" to="step3" bind="false"/>
         <transition on="finish" to="success" bind="false">
             <evaluate
-                    expression="handler.update(contactInfo, externalContext.nativeRequest.getAttribute('currentResource').node)"/>
+                    expression="contactInfoHandler.update(contactInfo, externalContext.nativeRequest.getAttribute('currentResource').node)"/>
         </transition>
     </view-state>
 

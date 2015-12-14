@@ -4,42 +4,40 @@
 <%@ taglib prefix="utility" uri="http://www.jahia.org/tags/utilityLib" %>
 <%@ taglib prefix="template" uri="http://www.jahia.org/tags/templateLib" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <div class="well span6" style="float:none;margin:0 auto">
-    <h2>Informations de contact</h2>
+    <h2>
+        <fmt:message key="wfnt_form.title">
+            <fmt:param value="${currentNode.user.name}"/>
+        </fmt:message>
+    </h2>
     <dl class="dl-horizontal">
         <dt>
             <fmt:message key="wfnt_form.email"/>
         </dt>
         <dd>
-            <c:if test="${not empty currentUser.properties['j:email'] }">
-                ${fn:escapeXml(currentUser.properties['j:email'])}
-            </c:if>
+            <c:out value="${contactInfo.email}"/>
         </dd>
         <dt>
             <fmt:message key="wfnt_form.phone"/>
         </dt>
         <dd>
-        	<c:if test="${not empty currentUser.properties['j:phoneNumber'] }">
-                ${fn:escapeXml(currentUser.properties['j:phoneNumber'])}
-            </c:if>
+            <c:out value="${contactInfo.phone}"/>
         </dd>
         <dt>
             <fmt:message key="wfnt_form.mobile"/>
         </dt>
         <dd>
-        	<c:if test="${not empty currentUser.properties['j:mobileNumber'] }">
-                ${fn:escapeXml(currentUser.properties['j:mobileNumber'])}
-            </c:if>
+            <c:out value="${contactInfo.mobile}"/>
         </dd>
     </dl>
-    
+
     <div class="pull-right">
-        <c:url value='${url.base}${currentNode.path}.webflow-update.html' var="updateUrl"/>
-        <a class="btn btn-default" href="${updateUrl}"
-           title="Modifier ces informations en commen&ccaron;ant un formulaire sur plusieurs &eacute;tapes">
-            <fmt:message key="wfnt_form.label.update"/>
-        </a>
+        <form:form modelAttribute="contactInfo" class="form-horizontal" method="post">
+            <button id="next" class="btn btn-primary" type="submit" name="_eventId_next">
+                <fmt:message key="wfnt_form.label.update"/>
+            </button>
+        </form:form>
     </div>
 </div>
 

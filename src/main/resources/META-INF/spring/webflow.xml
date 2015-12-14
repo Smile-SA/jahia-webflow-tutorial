@@ -10,5 +10,5 @@
     <mvc:annotation-driven conversion-service="springTypeConversionService"/>
 
     <bean id="messageSource" class="org.jahia.utils.i18n.ModuleMessageSource"/>
-
+    <bean id="contactInfoHandler" class="fr.smile.jahia.handler.ContactInfoHandler"/>
 </beans>

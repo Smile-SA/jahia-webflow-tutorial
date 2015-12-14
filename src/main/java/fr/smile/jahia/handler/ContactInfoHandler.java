@@ -22,6 +22,22 @@ public class ContactInfoHandler implements Serializable {
 	private static final Logger logger = LoggerFactory.getLogger(ContactInfoHandler.class);
 
     /**
+     * Init contactInfo with user data
+     * @param contactInfo contact info
+     * @param formNode the node
+     * @throws RepositoryException
+     */
+    public void init(
+            final ContactInfo contactInfo,
+            final JCRNodeWrapper formNode) throws RepositoryException {
+        JCRSessionWrapper session = formNode.getSession();
+        final JCRUserNode userNode = session.getUserNode();
+        contactInfo.setEmail(userNode.getPropertyAsString("j:email"));
+        contactInfo.setPhone(userNode.getPropertyAsString("j:phoneNumber"));
+        contactInfo.setMobile(userNode.getPropertyAsString("j:mobileNumber"));
+
+    }
+    /**
      * Update current user contact information
      *
      * @param contactInfo Java bean where temproray contact information are saved

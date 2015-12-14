@@ -1,0 +1,5 @@
+<div class="clearfix">
+    <div class="pull-right">
+        Etapes <progress max="4" value="1">(Step 1 of 4)</progress>
+    </div>
+</div>
