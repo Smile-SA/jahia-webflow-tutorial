@@ -143,7 +143,7 @@ Ces deux beans sont les utilitaires basiques lors de l'utilisation d'un webflow.
 
 Chaque composant Jahia dispose d'une ou plusieurs vues. En général, les vues sont des jsp. Par exemple, pour le composant wfnt_form, nous pourrions avoir les vues form.jsp (la vue par défaut), form.detail.jsp (la vue détail).
 
-Dans Jahia, webflow est intégré sous forme d'un nouveau type de vue. Pour faire une vue de type webflow, il faut créer un dossier, dont le nom se termine par _.flow_ , contenant la définition du flow ainsi que les jsp utilisées par le flow.
+Dans Jahia, webflow est intégré sous forme d'un nouveau type de vue. Pour faire une vue de type webflow, il faut créer un dossier, dont le nom se termine par `.flow` , contenant la définition du flow ainsi que les jsp utilisées par le flow.
 
 Dans votre dossier de vue du composant wfnt_form, créer un sous-dossier nommé de la manière suivante : nom du composant en camelCase + "." + nom de la vue webflow + ".flow".
 
@@ -267,7 +267,7 @@ flow.xml
 
 La première vue présentera un résumé des informations de l'utilisateur connecté et proposera un lien permettant de passer en modification.
 
-Pour cette vue (display.jsp), nous pouvons utiliser ce code pour afficher les informations utilisateur :
+Pour cette vue `display.jsp`, nous pouvons utiliser ce code pour afficher les informations utilisateur :
 
 ```xml
 <div class="well span6" style="float:none;margin:0 auto">
@@ -438,9 +438,9 @@ Pour cela nous créons la vue `modifStep2.jsp` dans le sous-dossier _form.flow/_
 
 Nous pouvons finaliser la partie navigation de l'application en ajoutant les vues et transitions manquantes.
 
-L'étape _modifStep3_ permettra de modifier le numéro de téléphone portable de l'utilisateur et redirigera vers la vue _summary_.
-_Summary_ résumera les modifications soumises par l'utilisateur et sur validation redirigera vers la vue _success_.
-_Success_ affichera un message de succès et proposera un lien renvoyant sur la vue par défaut.
+L'étape `modifStep3` permettra de modifier le numéro de téléphone portable de l'utilisateur et redirigera vers la vue `summary`.
+`Summary` résumera les modifications soumises par l'utilisateur et sur validation redirigera vers la vue _success_.
+`Success` affichera un message de succès et proposera un lien renvoyant sur la vue par défaut.
 
 ```xml
 <view-state id="modifStep2" model="contactInfo">
