@@ -167,7 +167,7 @@ Changez la valeur de l'id de la view-state en `display` (c'est ainsi que nous y 
 
 
 ## Modèle
-Nous allons créer une couche modele pour manipuler les données durant notre flow.
+Nous allons créer une couche modèle pour manipuler les données durant notre flow.
 
 Créez une nouvelle class Java dans un sous package `*.model` et nommez la `ContactInfo.java` par exemple.
 Cette classe doit implémenter la class Serializable pour pouvoir être stockée par spring webflow.
@@ -234,7 +234,7 @@ public void init(final ContactInfo contactInfo, final JCRNodeWrapper formNode) t
 
 La méthode prend en paramètre l'object ContactInfo déclaré dans le webflow, ainsi que le formNode qui correspond au node courant.
 
-L'objet est initialisé au démarrage du webflow dans une action-state de notre flow.
+L'objet contactInfo est initialisé au démarrage du webflow dans une action-state de notre flow.
 
 flow.xml
 ```xml
@@ -306,6 +306,7 @@ Une fois le module déployée dans Jahia, vous pouvez ajouter le composant wfnt:
 
 
 ## Transitions
+
 Le bouton mettre à jour présent sur la première vue déclenche la transition vers la vue suivante :
 ```xml
   <button id="next" class="btn btn-primary" type="submit" name="_eventId_next">
@@ -314,23 +315,23 @@ Le bouton mettre à jour présent sur la première vue déclenche la transition 
 Cette transition est déclarée dans le flow pour la vue display :
 ```xml
 <view-state id="display" model="contactInfo">
-        <transition on="next" to="step1" bind="false"/>
+        <transition on="next" to="modifStep1" bind="false"/>
 </view-state>
 ```
 
 Il faut faire correspondre le `on` de la transition au name du boutton submit préfixé par `_eventId_`.
 
-Pour la première étape, il s'agira d'afficher un formulaire permettant de modifier l'adresse email de l'utilisateur puis de passer à l'étape suivante.
-Pour cela nous créons la vue step1 dans le flow.xml et la jsp associée `step1.jsp` dans le sous-dossier _form.flow/_ :
+Pour la première étape de modification, il s'agira d'afficher un formulaire permettant de modifier l'adresse email de l'utilisateur puis de passer à l'étape suivante.
+Pour cela nous créons la vue modifStep1 dans le flow.xml et la jsp associée `modifStep1.jsp` dans le sous-dossier _form.flow/_ :
 
 flow.xml
 ```xml
-<view-state id="step1" model="contactInfo">
-    <transition on="next" to="step2"/>
+<view-state id="modifStep1" model="contactInfo">
+    <transition on="next" to="modifStep2"/>
 </view-state>
 ```
 
-step1.jsp
+modifStep1.jsp
 ```xml
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
@@ -376,7 +377,7 @@ step1.jsp
 ### Transition vers la deuxière étape
 
 Pour la séconde étape du webflow, il s'agira cette fois de modifier le numéro de téléphone de l'utilisateur.
-Pour cela nous créons la vue `step2.jsp` dans le sous-dossier _form.flow/_ :
+Pour cela nous créons la vue `modifStep2.jsp` dans le sous-dossier _form.flow/_ :
 
 ```xml
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -427,23 +428,23 @@ Pour cela nous créons la vue `step2.jsp` dans le sous-dossier _form.flow/_ :
 
 Nous pouvons finaliser la partie navigation de l'application en ajoutant les vues et transitions manquantes.
 
-Step3 permettra de modifier le numéro de téléphone portable de l'utilisateur et redirigera vers la vue summary.
-Summary résumera les modifications soumises par l'utilisateur et sur validation redirigera vers la vue success.
-Success affichera un message de succès et proposera un lien renvoyant sur la vue par défaut.
+L'étape _modifStep3_ permettra de modifier le numéro de téléphone portable de l'utilisateur et redirigera vers la vue _summary_.
+_Summary_ résumera les modifications soumises par l'utilisateur et sur validation redirigera vers la vue _success_.
+_Success_ affichera un message de succès et proposera un lien renvoyant sur la vue par défaut.
 
 ```xml
-<view-state id="step2" model="contactInfo">
-    <transition on="previous" to="step1"/>
-    <transition on="next" to="step3"/>
+<view-state id="modifStep2" model="contactInfo">
+    <transition on="previous" to="modifStep1"/>
+    <transition on="next" to="modifStep3"/>
 </view-state>
 
-<view-state id="step3" model="contactInfo">
-    <transition on="previous" to="step2" />
+<view-state id="modifStep3" model="contactInfo">
+    <transition on="previous" to="modifStep2" />
     <transition on="next" to="summary" />
 </view-state>
 
 <view-state id="summary" model="contactInfo">
-    <transition on="previous" to="step3" />
+    <transition on="previous" to="modifStep3" />
     <transition on="finish" to="success" />
 </view-state>
 
@@ -468,11 +469,15 @@ Dans notre handler, nous allons ajouter la méthode `update` pour mettre à jour
 
 Il peut également être intéressant de passer les informations du node Jahia courant afin de bénéficier de son contexte.
 
+
 ```java
+
 public void update(final ContactInfo contactInfo, final JCRNodeWrapper formNode)
+
 ```
 
 Il faut ensuite lier la méthode `update()` à une de vos transitions. 
+
 Pour ce faire, dans le fichier `flow.xml` et à l'intérieur de la balise `<transition/>` souhaitée, ajoutez une balise `<evaluate />`.
 Cette balise doit comporter l'attribut `expression` qui indique le bean et la méthode à appeler.
 Ici nous allons modifier la transition finish de la vue summary.
@@ -480,7 +485,7 @@ Ici nous allons modifier la transition finish de la vue summary.
 ```xml
 
 	<view-state id="summary" model="contactInfo">
-	    <transition on="previous" to="step3" bind="false"/>
+	    <transition on="previous" to="modifStep3" bind="false"/>
 	    <transition on="finish" to="success" bind="false">
 	        <evaluate
 	                expression="handler.update(contactInfo, externalContext.nativeRequest.getAttribute('currentResource').node)"/>
@@ -519,6 +524,7 @@ Les deux validateurs proposés proviennent d'Hibernate mais d'autres peuvent êt
 
 ## Conclusion
 
-Ce tutoriel nous a permis de découvrir comment intégrer et réaliser une IHM complexe dans Jahia avec spring-webflow.
+Ce tutoriel nous a permis de découvrir une manière d'intégrer et de réaliser une IHM complexe dans Jahia avec spring-webflow. Cet intégration spring-webflow permet de réaliser des composants d'interfaces complexes, ne se limitant pas à la manipulation de données Jahia. 
+
 
 

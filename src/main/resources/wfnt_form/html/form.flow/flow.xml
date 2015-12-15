@@ -18,22 +18,22 @@
         <transition on="next" to="step1" bind="false"/>
     </view-state>
 
-    <view-state id="step1" model="contactInfo">
-        <transition on="next" to="step2"/>
+    <view-state id="modifStep1" model="contactInfo">
+        <transition on="next" to="modifStep2"/>
     </view-state>
 
-    <view-state id="step2" model="contactInfo">
-        <transition on="previous" to="step1" bind="false"/>
-        <transition on="next" to="step3"/>
+    <view-state id="modifStep2" model="contactInfo">
+        <transition on="previous" to="modifStep1" bind="false"/>
+        <transition on="next" to="modifStep3"/>
     </view-state>
 
-    <view-state id="step3" model="contactInfo">
-        <transition on="previous" to="step2" bind="false"/>
+    <view-state id="modifStep3" model="contactInfo">
+        <transition on="previous" to="modifStep2" bind="false"/>
         <transition on="next" to="summary"/>
     </view-state>
 
     <view-state id="summary" model="contactInfo">
-        <transition on="previous" to="step3" bind="false"/>
+        <transition on="previous" to="modifStep3" bind="false"/>
         <transition on="finish" to="success" bind="false">
             <evaluate
                     expression="contactInfoHandler.update(contactInfo, externalContext.nativeRequest.getAttribute('currentResource').node)"/>
