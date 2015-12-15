@@ -11,7 +11,6 @@ Table des matières
 * [Modèle](#modèle)
 * [Traitements du webflow](#traitements-du-webflow)
 * [Vues et transitions](#vues-et-transitions)
-
 * [Validation de formulaire](#validation-de-formulaire)
 
 ## Introduction
@@ -147,7 +146,7 @@ Dans Jahia, webflow est intégré sous forme d'un nouveau type de vue. Pour fair
 
 Dans votre dossier de vue du composant wfnt_form, créer un sous-dossier nommé de la manière suivante : nom du composant en camelCase + "." + nom de la vue webflow + ".flow".
 
-Comme le webflow sera la vue par défaut, le nom de la vue ne doit pas être précisé. L’arborescence devrait donc ressembler à ça _src/main/resources/wfnt_form/html/form.flow/_.
+Comme la vue de type webflow sera la vue par défaut du composant, le nom de la vue ne doit pas être précisé. L’arborescence devrait donc ressembler à ça _src/main/resources/wfnt_form/html/form.flow/_.
 
 Ce dossier contiendra d'une part les vues dédiées au webflow et d'autre part sa définition grâce au fichier `flow.xml`.
 
