@@ -209,7 +209,7 @@ Le code de la balise complète:
 <var name="contactInfo" class="fr.smile.jahia.model.ContactInfo"/>
 ```
 
-Ce bean sera accessible dans nos formulaires jsp.
+Cette variable sera accessible dans notre flow et dans les vues jsp.
 
 
 
