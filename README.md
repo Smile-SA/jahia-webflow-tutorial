@@ -243,7 +243,7 @@ public void init(final ContactInfo contactInfo, final JCRNodeWrapper formNode) t
 
 La méthode prend en paramètre l'object ContactInfo déclaré dans le webflow, ainsi que le formNode qui correspond au node courant.
 
-L'objet contactInfo est initialisé au démarrage du webflow dans une action-state de notre flow. Dans l'expression, `contactInfoHandler` correspond à l'identifiant du bean spring.
+L'objet `contactInfo` est initialisé au démarrage du webflow dans une action-state de notre flow. Dans cette action, l'expression utilise `contactInfoHandler` qui correspond à l'identifiant du bean spring déclaré précédemment.
 
 flow.xml
 ```xml
