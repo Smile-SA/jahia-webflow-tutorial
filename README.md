@@ -73,7 +73,7 @@ A tout moment, dans le processus, il sera possible d'annuler nos modifications.
 
 Un webflow fonctionnant sous Digital Factory se définit par plusieurs fichiers.
 
-![Annulation des modifications](doc/structure.png)
+![Structure du projet](doc/structure.png)
 
 Il est important de comprendre le rôle de chacun de ces fichiers:
 
@@ -108,7 +108,7 @@ Finalement, nous allons déclarer notre composant. Celui-ci va hériter de la mi
 ```
 Sauvegardez et compilez. Le composant devrait donc apparaître dans la liste des contenus du mode édition de Jahia.
 
-### Définition de la vue par défaut du composant
+### Définition de la vue du composant
 
 Dans le dossier _src/main/resources_, nous allons créer une arboréscence contenant les différentes vues de notre composant.
 Tout d’abord il faut créer un dossier correspondant au nom du composant. Le nom de ce dossier se compose de la manière suivante : "namespace du composant" + "_" + "nom du composant en camelCase"
@@ -138,13 +138,21 @@ Ces deux beans sont les utilitaires basiques lors de l'utilisation d'un webflow.
 `ModuleMessageSource` permet l'utilisation des resource bundles pour l'internationalisation de vos vues.
 `SpringTypeConversionService` permet la validation des valeurs renseignées par les utilisateurs au travers de vos formulaires.
 
-Ensuite dans votre dossier de vue, créer un sous-dossier nommé de la manière suivante : nom du composant en camelCase + "." + nom de la vue webflow + ".flow"
 
-Comme nous allons créer une vue par défaut,  le nom de la vue ne doit pas être précisé. L’arborescence devrait donc ressembler à ça _src/main/resources/wfnt\_form/html/form.flow/_.
+### Création du webflow
+
+Chaque composant Jahia dispose d'une ou plusieurs vues. En général, les vues sont des jsp. Par exemple, pour le composant wfnt_form, nous pourrions avoir les vues form.jsp (la vue par défaut), form.detail.jsp (la vue détail).
+
+Dans Jahia, webflow est intégré sous forme d'un nouveau type de vue. Pour faire une vue de type webflow, il faut créer un dossier, dont le nom se termine par _.flow_ , contenant la définition du flow ainsi que les jsp utilisées par le flow.
+
+Dans votre dossier de vue du composant wfnt_form, créer un sous-dossier nommé de la manière suivante : nom du composant en camelCase + "." + nom de la vue webflow + ".flow".
+
+Comme le webflow sera la vue par défaut, le nom de la vue ne doit pas être précisé. L’arborescence devrait donc ressembler à ça _src/main/resources/wfnt_form/html/form.flow/_.
 
 Ce dossier contiendra d'une part les vues dédiées au webflow et d'autre part sa définition grâce au fichier `flow.xml`.
 
-### Configuration du webflow
+
+
 
 Dans le dossier _src/main/resources/wf_form/html/form.flow/_, créez un fichier nommé `flow.xml`.
 
@@ -164,9 +172,6 @@ Chaque étape du webflow sera à inclure dans la balise `<flow />` par ce code :
 ```xml
 <view-state id="viewName" />
 ```
-
-La première étape de notre webflow sera la page de présentation des données utilisateur.
-Changez la valeur de l'id de la view-state en `display` (c'est ainsi que nous y ferons référence par la suite).
 
 
 ## Modèle
