@@ -533,7 +533,7 @@ Les deux validateurs proposés proviennent d'Hibernate mais d'autres peuvent êt
 
 ## Conclusion
 
-Ce tutoriel nous a permis de découvrir une manière d'intégrer et de réaliser une IHM complexe dans Jahia avec spring-webflow. L'intégration de spring-webflow dans Jahia permet de réaliser des composants d'interfaces complexes, et ne se limitant pas à la manipulation de données Jahia.
+Ce tutoriel nous a permis de découvrir une manière d'intégrer et de réaliser des IHM complexes dans Jahia avec spring-webflow. L'intégration de spring-webflow dans Jahia permet de réaliser des composants d'interfaces complexes ne se limitant pas à la manipulation de données Jahia.
 
 
 
