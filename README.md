@@ -72,6 +72,9 @@ A tout moment, dans le processus, il sera possible d'annuler nos modifications.
 ## Structure d'un webflow
 
 Un webflow fonctionnant sous Digital Factory se définit par plusieurs fichiers.
+
+![Annulation des modifications](doc/structure.png)
+
 Il est important de comprendre le rôle de chacun de ces fichiers:
 
 1. applicationContext-webflow.xml : webflow faisant partie de la stack Spring, il nécessite un fichier de contexte où définir des beans
