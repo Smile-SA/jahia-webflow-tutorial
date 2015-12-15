@@ -15,16 +15,15 @@ import java.io.Serializable;
 /**
  * Webflow handler in order to update with user contact information
  */
-public class ContactInfoHandler implements Serializable {
+public class ContactInfoHandler {
 
-	private static final long serialVersionUID = 1L;
-	
-	private static final Logger logger = LoggerFactory.getLogger(ContactInfoHandler.class);
+    private static final Logger logger = LoggerFactory.getLogger(ContactInfoHandler.class);
 
     /**
      * Init contactInfo with user data
+     *
      * @param contactInfo contact info
-     * @param formNode the node
+     * @param formNode    the node
      * @throws RepositoryException
      */
     public void init(
@@ -37,6 +36,7 @@ public class ContactInfoHandler implements Serializable {
         contactInfo.setMobile(userNode.getPropertyAsString("j:mobileNumber"));
 
     }
+
     /**
      * Update current user contact information
      *
