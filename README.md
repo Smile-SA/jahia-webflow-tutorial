@@ -243,7 +243,7 @@ public void init(final ContactInfo contactInfo, final JCRNodeWrapper formNode) t
 
 La méthode prend en paramètre l'object ContactInfo déclaré dans le webflow, ainsi que le formNode qui correspond au node courant.
 
-L'objet contactInfo est initialisé au démarrage du webflow dans une action-state de notre flow. A noter que contactInfoHandler correspond à l'identifiant du bean spring.
+L'objet contactInfo est initialisé au démarrage du webflow dans une action-state de notre flow. Dans l'expression, `contactInfoHandler` correspond à l'identifiant du bean spring.
 
 flow.xml
 ```xml
@@ -385,7 +385,7 @@ modifStep1.jsp
 
 ### Transition vers la deuxière étape
 
-Pour la séconde étape du webflow, il s'agira cette fois de modifier le numéro de téléphone de l'utilisateur.
+Pour la séconde étape modification du webflow, il s'agira cette fois de modifier le numéro de téléphone de l'utilisateur.
 Pour cela nous créons la vue `modifStep2.jsp` dans le sous-dossier _form.flow/_ :
 
 ```xml
