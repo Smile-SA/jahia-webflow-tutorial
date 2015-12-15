@@ -111,7 +111,7 @@ Sauvegardez et compilez. Le composant devrait donc apparaître dans la liste des
 ### Définition de la vue du composant
 
 Dans le dossier _src/main/resources_, nous allons créer une arboréscence contenant les différentes vues de notre composant.
-Tout d’abord il faut créer un dossier correspondant au nom du composant. Le nom de ce dossier se compose de la manière suivante : "namespace du composant" + "_" + "nom du composant en camelCase"
+Tout d’abord il faut créer un dossier correspondant au nom du composant. Le nom de ce dossier se compose de la manière suivante : "namespace du composant" + "_" + "nom du composant en camelCase".
 Pour notre exemple, nous allons donc nommer ce dossier `wfnt_form`.
 Dans ce dossier nous allons créer un dossier `html`, ce dossier contiendra les vues html.
 
@@ -160,11 +160,11 @@ Voici le code de base du webflow:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-    <flow xmlns="http://www.springframework.org/schema/webflow" 
-            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-            xsi:schemaLocation="http://www.springframework.org/schema/webflow 
-                                http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd">
-	</flow>
+<flow xmlns="http://www.springframework.org/schema/webflow"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.springframework.org/schema/webflow
+                            http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd">
+</flow>
 ```
 
 Chaque étape du webflow sera à inclure dans la balise `<flow />` par ce code :
@@ -181,7 +181,9 @@ Créez une nouvelle class Java dans un sous package `*.model` et nommez la `Cont
 Cette classe doit implémenter la class Serializable pour pouvoir être stockée par spring webflow.
 
 Créez les champs dont vous aurez besoin, il vous faut une variable pour chaque champ présent dans le formulaire.
-Générez les getter et setter correspondant ainsi que la méthode `toString()`.
+
+Générez les getter et setter correspondant.
+
 
 ```java
 public class ContactInfo implements Serializable {
@@ -215,12 +217,12 @@ Ce bean sera accessible dans nos formulaires jsp.
 
 ## Traitements du webflow
 
-Nous allons créer une classe de traitement chargée d'initialiser les données et mettre à jour l'utilisateur.
+Nous allons créer une classe de traitement chargée d'initialiser les données et de mettre à jour les données de l'utilisateur.
 
 
 Créez une classe Java dans un package `*.handler` et nommez la `ContactInfoHandler`.
 
-Déclarer le bean spring contactInfoHandler dans le fichier applicationContext-webflow.xml
+Déclarer le bean spring contactInfoHandler dans le fichier applicationContext-webflow.xml.
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
@@ -242,7 +244,7 @@ public void init(final ContactInfo contactInfo, final JCRNodeWrapper formNode) t
 
 La méthode prend en paramètre l'object ContactInfo déclaré dans le webflow, ainsi que le formNode qui correspond au node courant.
 
-L'objet contactInfo est initialisé au démarrage du webflow dans une action-state de notre flow.
+L'objet contactInfo est initialisé au démarrage du webflow dans une action-state de notre flow. A noter que contactInfoHandler correspond à l'identifiant du bean spring.
 
 flow.xml
 ```xml
@@ -263,9 +265,9 @@ flow.xml
 
 ## Vues
 
-La première vue présentera un résumé des informations utilisateur et proposera un lien permettant de passer en mode modification.
+La première vue présentera un résumé des informations de l'utilisateur connecté et proposera un lien permettant de passer en modification.
 
-Pour cette vue par défaut (display.jsp), nous pouvons utiliser ce code pour afficher les informations utilisateur :
+Pour cette vue (display.jsp), nous pouvons utiliser ce code pour afficher les informations utilisateur :
 
 ```xml
 <div class="well span6" style="float:none;margin:0 auto">
@@ -309,7 +311,7 @@ Pour cette vue par défaut (display.jsp), nous pouvons utiliser ce code pour aff
 
 ### Tester le flow
 
-Une fois le module déployée dans Jahia, vous pouvez ajouter le composant wfnt:form sur une page.
+Une fois le module déployée dans Jahia, vous pouvez ajouter le composant wfnt:form sur une page afin de tester le bon fonctionnement de cette vue.
 
 
 
@@ -330,7 +332,7 @@ Cette transition est déclarée dans le flow pour la vue display :
 Il faut faire correspondre le `on` de la transition au name du boutton submit préfixé par `_eventId_`.
 
 Pour la première étape de modification, il s'agira d'afficher un formulaire permettant de modifier l'adresse email de l'utilisateur puis de passer à l'étape suivante.
-Pour cela nous créons la vue modifStep1 dans le flow.xml et la jsp associée `modifStep1.jsp` dans le sous-dossier _form.flow/_ :
+Pour cela nous créons la vue `modifStep1` dans le flow.xml et la jsp associée `modifStep1.jsp` dans le sous-dossier _form.flow/_ :
 
 flow.xml
 ```xml
@@ -532,7 +534,7 @@ Les deux validateurs proposés proviennent d'Hibernate mais d'autres peuvent êt
 
 ## Conclusion
 
-Ce tutoriel nous a permis de découvrir une manière d'intégrer et de réaliser une IHM complexe dans Jahia avec spring-webflow. Cet intégration spring-webflow permet de réaliser des composants d'interfaces complexes, ne se limitant pas à la manipulation de données Jahia. 
+Ce tutoriel nous a permis de découvrir une manière d'intégrer et de réaliser une IHM complexe dans Jahia avec spring-webflow. L'intégration de spring-webflow dans Jahia permet de réaliser des composants d'interfaces complexes, et ne se limitant pas à la manipulation de données Jahia.
 
 
 
