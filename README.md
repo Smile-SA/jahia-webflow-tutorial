@@ -439,7 +439,7 @@ Pour cela nous créons la vue `modifStep2.jsp` dans le sous-dossier _form.flow/_
 Nous pouvons finaliser la partie navigation de l'application en ajoutant les vues et transitions manquantes.
 
 L'étape `modifStep3` permettra de modifier le numéro de téléphone portable de l'utilisateur et redirigera vers la vue `summary`.
-`Summary` résumera les modifications soumises par l'utilisateur et sur validation redirigera vers la vue _success_.
+`Summary` résumera les modifications soumises par l'utilisateur et sur validation redirigera vers la vue `success`.
 `Success` affichera un message de succès et proposera un lien renvoyant sur la vue par défaut.
 
 ```xml
