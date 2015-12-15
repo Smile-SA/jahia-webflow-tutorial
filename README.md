@@ -9,10 +9,11 @@ Table des matières
 * [Définition du composant Jahia](#définition-du-composant-jahia)
 * [Mise en place de Webflow](#mise-en-place-de-webflow)
 * [Modèle](#modèle)
+* [Traitements du webflow](#traitements-du-webflow)
 * [Vues](#vues)
 * [Transitions](#transitions)
-* [Traitements du webflow](#traitements-du-webflow)
 * [Validation de formulaire](#validation-de-formulaire)
+* [Conclusion](#conclusion)
 
 ## Introduction
 
