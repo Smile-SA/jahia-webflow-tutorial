@@ -15,7 +15,7 @@
     </action-state>
 
     <view-state id="display" model="contactInfo">
-        <transition on="next" to="step1" bind="false"/>
+        <transition on="next" to="modifStep1" bind="false"/>
     </view-state>
 
     <view-state id="modifStep1" model="contactInfo">
