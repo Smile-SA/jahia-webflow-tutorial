@@ -136,7 +136,7 @@ Premièrement la configuration spring. Dans _src/main/resources_ créer _META-IN
 ```
 
 Ces deux beans sont les utilitaires basiques lors de l'utilisation d'un webflow.
-`ModuleMessageSource` permet l'utilisation des resource bundles pour l'internationalisation de vos vues.
+`ModuleMessageSource` permet l'utilisation des ressources bundles pour l'internationalisation de vos vues.
 `SpringTypeConversionService` permet la validation des valeurs renseignées par les utilisateurs au travers de vos formulaires.
 
 
@@ -155,7 +155,7 @@ Ce dossier contiendra d'une part les vues dédiées au webflow et d'autre part s
 
 
 
-Dans le dossier _src/main/resources/wf_form/html/form.flow/_, créez un fichier nommé `flow.xml`.
+Dans le dossier _src/main/resources/wfnt_form/html/form.flow/_, créez un fichier nommé `flow.xml`.
 
 Voici le code de base du webflow:
 
